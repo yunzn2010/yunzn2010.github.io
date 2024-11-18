@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Yun Chu</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        nav {
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #764ba2;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-section {
+            margin-bottom: 2rem;
+        }
+
+        .about-section h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.1) 100%);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #f5f5f5;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+            }
+
+            .about-image {
+                position: static;
+                margin-bottom: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Me</h1>
+        <p>Get to know me better</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="interests.html">Interests</a></li>
+            <li><a href="travel.html">Travel</a></li>
+            <li><a href="skiing.html">Skiing</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="about-container">
+        <div class="about-text">
+            <div class="about-section">
+                <h2>Who Am I?</h2>
+                <p>I'm Yun Chu, an Embedded Systems Engineer at Lenexa Medical with a passion for robotics, smart home technology, and microcontroller projects. My journey in engineering has been driven by a curiosity to understand how things work and a desire to create innovative solutions.</p>
+            </div>
+
+            <div class="about-section highlight-box">
+                <h2>What Drives Me</h2>
+                <p>I believe in the power of technology to improve lives. Whether it's developing embedded systems for medical devices or tinkering with robotics projects in my spare time, I'm constantly seeking ways to push the boundaries of what's possible.</p>
+            </div>
+
+            <div class="about-section">
+                <h2>Beyond Engineering</h2>
+                <p>When I'm not immersed in technical projects, you'll find me on the ski slopes, exploring new trails, or spending time with my beloved dog. I believe in maintaining a balanced life that combines professional growth with personal passions.</p>
+            </div>
+
+            <div class="about-section">
+                <h2>Professional Journey</h2>
+                <p>At Lenexa Medical, I work on developing cutting-edge embedded systems that make a real difference in healthcare. This role allows me to combine my technical expertise with my desire to create meaningful impact.</p>
+            </div>
+        </div>
+
+        <div class="about-image">
+            <img src="images/my_photo_capstone.jpg" alt="Yun Chu" />
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Yun Chu. All rights reserved.</p>
+    </footer>
+</body>
+</html>

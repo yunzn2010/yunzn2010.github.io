@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Adventures - Yun Chu</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <!-- Add React and ReactDOM -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <!-- Add Babel for JSX support -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+    <style>
+        /* Your existing styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header and Nav styles from main page */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        nav {
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        /* New Travel-specific styles */
+        .travel-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .destination-category {
+            margin-bottom: 4rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #764ba2;
+        }
+
+        .category-header h2 {
+            color: #764ba2;
+            margin: 0;
+        }
+
+        .category-header .location-count {
+            margin-left: 1rem;
+            background: #667eea;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+
+        .travel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .travel-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .travel-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .travel-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .travel-content {
+            padding: 1.5rem;
+        }
+
+        .travel-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .travel-title {
+            color: #333;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .travel-excerpt {
+            color: #666;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .travel-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .travel-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Add timeline-specific styles */
+        .flex-container {
+            display: flex; /* Create a flexbox container */
+            max-width: 1200px; /* Adjust as per your design */
+            margin: 0 auto; /* Center the entire container */
+            padding: 2rem; /* Optional padding for space around */
+        }
+
+        #timeline-root {
+            flex: 0 0 200px; /* Fixed width for the timeline */
+            margin-right: 2rem; /* Space between timeline and main content */
+        }
+
+        .travel-container {
+            flex: 1; /* Take the remaining space */
+            padding: 2 rem;
+        }
+
+        @media (max-width: 768px) {
+            #timeline-root {
+                display: none;
+            }
+            
+            .travel-container {
+                margin-left: 0 !important;
+            }
+        }
+
+        /* Timeline specific styles */
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .timeline-item:hover {
+            opacity: 1;
+        }
+
+        .timeline-item.active {
+            opacity: 1;
+        }
+
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #764ba2;
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            height: 100%;
+            width: 2px;
+            background-color: #ddd;
+            left: 5px;
+            top: 12px;
+        }
+
+        .timeline-content {
+            margin-left: 1rem;
+        }
+
+        .timeline-date {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .timeline-title {
+            font-size: 0.9rem;
+            font-weight: 500;
+            max-width: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Function to update location counts for each category
+        const updateLocationCounts = () => {
+            // Select all destination categories
+            const categories = document.querySelectorAll('.destination-category');
+
+            categories.forEach(category => {
+                // Find the category header
+                const header = category.querySelector('.category-header');
+                if (header) {
+                    const locationCountElement = header.querySelector('.location-count');
+                    if (locationCountElement) {
+                        // Count the number of travel cards within this category
+                        const count = category.querySelectorAll('.travel-card').length;
+                        // Update the location count text
+                        locationCountElement.textContent = `${count} location${count !== 1 ? 's' : ''}`;
+                    }
+                }
+            });
+        };
+
+        // Call the function to update counts
+        updateLocationCounts();
+    });
+</script>
+<body>
+    <header>
+        <h1>Travel Adventures</h1>
+        <p>Documenting my journeys around the world</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="interests.html">Interests</a></li>
+            <li><a href="skiing.html">Skiing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <!-- Add this right after the <nav> section -->
+    <div id="timeline-root"></div>
+
+    <main class="travel-container">
+        <div class="destination-category">
+            <div class="category-header">
+                <h2>Australia</h2>
+                <span class="location-count" id="australia-count">Loading...</span>
+            </div>
+            <div class="travel-grid">
+
+                <article class="travel-card">
+                    <img src="images/travel/Phillip island.webp" alt="Phillip Island" class="travel-image">
+                    <div class="travel-content">
+                        <div class="travel-date">October 10-14, 2023</div>
+                        <h3 class="travel-title">Little Penguin Parade at Phillip Island</h3>
+                        <p class="travel-excerpt">
+                            Sun, surf, and theme parks - experiencing the best of Queensland's famous Gold Coast.
+                        </p>
+                        <div class="travel-tags">
+                            <span class="tag">Cradle Mountain</span>
+                            <span class="tag">Tasmania Devil</span>
+                            <span class="tag">St Helen</span>
+                        </div>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="travel-card">
+                    <img src="images/travel/quokka.jpg" alt="Perth" class="travel-image">
+                    <div class="travel-content">
+                        <div class="travel-date">December 15-17, 2023</div>
+                        <h3 class="travel-title">Quokkas are too cute!!!</h3>
+                        <p class="travel-excerpt">
+                            Quokkas, beach, and pearl.
+                        </p>
+                        <div class="travel-tags">
+                            <span class="tag">Road Trip</span>
+                            <span class="tag">Coastal</span>
+                            <span class="tag">Nature</span>
+                        </div>
+                        <a href="travel_blogs/rottness-island.html" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="travel-card">
+                    <img src="images/travel/twelve apostles.jpg" alt="Great Ocean Road" class="travel-image">
+                    <div class="travel-content">
+                        <div class="travel-date">December 15-17, 2023</div>
+                        <h3 class="travel-title">Great Ocean Road Adventure</h3>
+                        <p class="travel-excerpt">
+                            A stunning coastal drive along Victoria's southern edge, featuring the iconic Twelve Apostles and charming coastal towns.
+                        </p>
+                        <div class="travel-tags">
+                            <span class="tag">Road Trip</span>
+                            <span class="tag">Coastal</span>
+                            <span class="tag">Nature</span>
+                        </div>
+                        <a href="travel_blogs/great-ocean-road.html" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="travel-card">
+                    <img src="images/travel/opera_house.jpg" alt="Sydney Opera House" class="travel-image">
+                    <div class="travel-content">
+                        <div class="travel-date">November 1-5, 2023</div>
+                        <h3 class="travel-title">Sydney Weekend Getaway</h3>
+                        <p class="travel-excerpt">
+                            Exploring the vibrant city of Sydney, from its iconic Opera House to the beautiful Bondi Beach.
+                        </p>
+                        <div class="travel-tags">
+                            <span class="tag">City</span>
+                            <span class="tag">Culture</span>
+                            <span class="tag">Beach</span>
+                        </div>
+                        <a href="travel_blogs/sydney.html" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="travel-card">
+                    <img src="images/travel/tasmania_devil.avif" alt="Tasmania" class="travel-image">
+                    <div class="travel-content">
+                        <div class="travel-date">October 10-14, 2023</div>
+                        <h3 class="travel-title">4 Days in Tasmania</h3>
+                        <p class="travel-excerpt">
+                            Tasmania Devils, Eastern Quolls, and road trip! 
+                        </p>
+                        <div class="travel-tags">
+                            <span class="tag">Cradle Mountain</span>
+                            <span class="tag">Tasmania Devil</span>
+                            <span class="tag">St Helen</span>
+                        </div>
+                        <a href="travel_blogs/tasmania.html" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <!-- Example Travel Card 3 -->
+                <article class="travel-card">
+                    <img src="images/travel/tangalooma_beach.jpg" alt="Brisbane (Moreton Island)" class="travel-image">
+                    <div class="travel-content">
+                        <div class="travel-date">October 10-14, 2023</div>
+                        <h3 class="travel-title">Brisbane (Moreton Island) Trip</h3>
+                        <p class="travel-excerpt">
+                            Sun, beach, and omg those dolphins are here!
+                        </p>
+                        <div class="travel-tags">
+                            <span class="tag">Beach</span>
+                            <span class="tag">Adventure</span>
+                            <span class="tag">Entertainment</span>
+                        </div>
+                        <a href="travel_blogs/brisbane.html" class="read-more">Read More →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Yun Chu. All rights reserved.</p>
+    </footer>
+    <!-- Add Timeline Component Script -->
+    <script type="text/babel">
+        const TimelineItem = ({ date, title, isActive, onClick }) => (
+            <div 
+                className={`timeline-item ${isActive ? 'active' : ''}`}
+                onClick={onClick}
+            >
+                <div className="timeline-dot">
+                    <div className="timeline-line"></div>
+                </div>
+                <div className="timeline-content">
+                    <div className="timeline-date">{date}</div>
+                    <div className="timeline-title">{title}</div>
+                </div>
+            </div>
+        );
+
+        const Timeline = () => {
+            const [activeItem, setActiveItem] = React.useState(null);
+
+            const timelineData = [
+                {
+                    date: "Dec 15-17, 2023",
+                    title: "Quokkas at Rottnest Island"
+                },
+                {
+                    date: "Dec 15-17, 2023",
+                    title: "Great Ocean Road Adventure"
+                },
+                {
+                    date: "Nov 1-5, 2023",
+                    title: "Sydney Weekend Getaway"
+                },
+                {
+                    date: "Oct 10-14, 2023",
+                    title: "Little Penguin Parade"
+                },
+                {
+                    date: "Oct 10-14, 2023",
+                    title: "A Week in Tasmania"
+                },
+                {
+                    date: "Oct 10-14, 2023",
+                    title: "Gold Coast Paradise"
+                }
+            ];
+
+            const handleItemClick = (index) => {
+                setActiveItem(index);
+                const cards = document.querySelectorAll('.travel-card');
+                if (cards[index]) {
+                    cards[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            };
+
+            return (
+                <div style={{
+                    position: 'fixed',
+                    left: '1rem',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    background: 'white',
+                    padding: '1rem',
+                    borderRadius: '8px',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                    maxHeight: '80vh',
+                    overflowY: 'auto'
+                }}>
+                    {timelineData.map((item, index) => (
+                        <TimelineItem
+                            key={index}
+                            date={item.date}
+                            title={item.title}
+                            isActive={activeItem === index}
+                            onClick={() => handleItemClick(index)}
+                        />
+                    ))}
+                </div>
+            );
+        };
+
+        // Render the Timeline component
+        ReactDOM.render(<Timeline />, document.getElementById('timeline-root'));
+    </script>
+</body>
+</html>

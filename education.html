@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yun Chu - Education History</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        nav {
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            max-width: 1400px;
+            margin: 2rem auto;
+            gap: 2rem;
+            min-height: 100vh;
+            padding: 0 1rem;
+        }
+
+        .timeline-section {
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+            padding-right: 1rem;
+        }
+
+        .timeline {
+            position: relative;
+            height: 600px;
+            margin-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #e5e7eb;
+        }
+
+        .timeline-item {
+            position: absolute;
+            left: -8px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .timeline-period {
+            position: absolute;
+            left: -2px;
+            width: 6px;
+            background: #3b82f6;
+            border-radius: 3px;
+            opacity: 0.3;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-period.active {
+            opacity: 1;
+            width: 8px;
+        }
+
+        .timeline-content {
+            position: absolute;
+            left: 20px;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            font-size: 0.8rem;
+            width: 150px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content.active {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        .timeline-content h3 {
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-content p {
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        .education-item {
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .school-logo {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: #f8f8f8;
+            padding: 0.5rem;
+        }
+
+        .education-content {
+            flex: 1;
+        }
+
+        .education-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .education-item.active {
+            border-left: 4px solid #3b82f6;
+        }
+
+        .event-item {
+            font-size: 0.9rem;
+            color: #6b7280;
+            padding: 0.5rem 0;
+            border-left: 2px solid #e5e7eb;
+            margin-left: 1rem;
+            padding-left: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #f5f5f5;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-section {
+                position: static;
+                order: 2;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Education History</h1>
+        <p>My Academic Journey</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="travel.html">Travel</a></li>
+            <li><a href="interests.html">Interests</a></li>
+            <li><a href="skiing.html">Skiing</a></li>
+            <li><a href="index.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="timeline-section">
+            <div class="timeline">
+                <!-- Timeline periods will be inserted here by JavaScript -->
+            </div>
+        </div>
+
+        <div class="text-section">
+            <div class="education-item" data-start="2022" data-end="2024">
+                <img src="images/education/unimelb.jpg" alt="University Logo" class="school-logo">
+                <div class="education-content">
+                    <h3>The University of Melbourne 墨爾本大學</h3>
+                    <div class="year">2022 - 2024</div>
+                    <p>Master of Mechatronics Engineering</p>
+                    <div class="event-item">2023 Student Ambassador of the Faculty of Engineering and Information Technology</div>
+                    <div class="event-item">Unitree Go1 robot project</div>
+                </div>
+            </div>
+
+            <div class="education-item" data-start="2017" data-end="2021">
+                <img src="images/education/ntu_logo.png" alt="University Logo" class="school-logo">
+                <div class="education-content">
+                    <h3>National Taiwan University 國立台灣大學</h3>
+                    <div class="year">2017 - 2021</div>
+                    <p>Bachelor of Science in Mechanical Engineering</p>
+                    <div class="event-item">Sperical Robot Project in BioRola Lab</div>
+                    <div class="event-item">I made a lot of great friends here!</div>
+                </div>
+            </div>
+
+            <div class="education-item" data-start="2014" data-end="2017">
+                <img src="images/education/ahsnccu.png" alt="High School Logo" class="school-logo">
+                <div class="education-content">
+                    <h3>AHSNCCU 政大附中高中部</h3>
+                    <div class="year">2014 - 2017</div>
+                    <p>Science and Mathematics Focus</p>
+                    <div class="event-item">導師: 曹靜茹 老師</div>
+                    <div class="event-item">Class: 106 - 126</div>
+                    <div class="event-item">Physics Research Projects</div>
+                </div>
+            </div>
+
+            <div class="education-item" data-start="2011" data-end="2014">
+                <img src="images/education/ahsnccu.png" alt="Junior High Logo" class="school-logo">
+                <div class="education-content">
+                    <h3>AHSNCCU 政大附中國中部</h3>
+                    <div class="year">2011 - 2014</div>
+                    <p>General Education</p>
+                    <div class="event-item">導師: 張彥勝 老師</div>
+                    <div class="event-item">Class: 074 - 094</div>
+                    <div class="event-item">Judo Team Vice Leader</div>
+                </div>
+            </div>
+
+            <div class="education-item" data-start="2005" data-end="2011">
+                <img src="images/education/znees.jpeg" alt="Elementary School Logo" class="school-logo">
+                <div class="education-content">
+                    <h3>Elementary School@指南國小</h3>
+                    <div class="year">2005 - 2011</div>
+                    <p>Primary Education</p>
+                    <div class="event-item">Spelling bee champion</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Yun Chu. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Calculate timeline positions
+        const startYear = 2005;
+        const endYear = 2024;
+        const timelineHeight = 600; // matches CSS height
+        const yearHeight = timelineHeight / (endYear - startYear);
+
+        function calculatePosition(year) {
+            return (year - startYear) * yearHeight;
+        }
+
+        // Create timeline periods
+        const timeline = document.querySelector('.timeline');
+        document.querySelectorAll('.education-item').forEach(item => {
+            const startYear = parseInt(item.dataset.start);
+            const endYear = parseInt(item.dataset.end);
+            const start = calculatePosition(startYear);
+            const height = calculatePosition(endYear) - start;
+
+            const timelineItem = document.createElement('div');
+            timelineItem.className = 'timeline-item';
+            timelineItem.style.top = `${start}px`;
+            
+            const period = document.createElement('div');
+            period.className = 'timeline-period';
+            period.style.height = `${height}px`;
+
+            const content = document.createElement('div');
+            content.className = 'timeline-content';
+            content.innerHTML = `
+                <h3>${item.querySelector('h3').textContent}</h3>
+                <p>${item.querySelector('.year').textContent}</p>
+            `;
+
+            timelineItem.appendChild(period);
+            timelineItem.appendChild(content);
+            timeline.appendChild(timelineItem);
+
+            // Add click handler
+            timelineItem.addEventListener('click', () => {
+                item.click();
+            });
+        });
+
+        // Click handlers for education items
+        document.querySelectorAll('.education-item').forEach(item => {
+            item.addEventListener('click', () => {
+                // Remove active class from all items
+                document.querySelectorAll('.education-item').forEach(i => i.classList.remove('active'));
+                document.querySelectorAll('.timeline-period').forEach(i => i.classList.remove('active'));
+                document.querySelectorAll('.timeline-content').forEach(i => i.classList.remove('active'));
+                
+                // Add active class to clicked item and corresponding timeline
+                item.classList.add('active');
+                const startYear = item.dataset.start;
+                const timelineItem = timeline.querySelector(`.timeline-item[style*="top: ${calculatePosition(parseInt(startYear))}px"]`);
+                timelineItem.querySelector('.timeline-period').classList.add('active');
+                timelineItem.querySelector('.timeline-content').classList.add('active');
+                
+                // Scroll timeline item into view
+                timelineItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        });
+    </script>
+</body>
+</html>

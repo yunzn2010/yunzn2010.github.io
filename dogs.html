@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Furry Friends - Yun Chu</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #fdf6ed;  /* Warm, light background */
+        }
+
+        .nav-wrapper {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #e67e22;  /* Warm orange for hover */
+        }
+
+        .header-section {
+            margin-top: 60px;
+            padding: 4rem 0;
+            background: #fff5e6;  /* Warm, light background */
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .header-content p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .dog-section {
+            margin-bottom: 6rem;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .dog-profile {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .dog-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .dog-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .dog-image:hover {
+            transform: scale(1.02);
+        }
+
+        .dog-info h2 {
+            color: #e67e22;  /* Warm orange */
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .dog-info p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .dog-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat {
+            background: #fff5e6;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #e67e22;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            margin-top: 4rem;
+        }
+        /* Add new styles for video section */
+        .video-section {
+            margin-top: 3rem;
+            background: #fff;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .video-title {
+            color: #e67e22;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .video-container iframe,
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .video-description {
+            margin-top: 1.5rem;
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Add this inside your existing dog-section style */
+        .dog-section {
+            margin-bottom: 6rem;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        /* Optional: Style for multiple videos */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-wrapper">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="engineering.html">Engineering</a></li>
+                <li><a href="skiing.html">Skiing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section class="header-section">
+        <div class="header-content">
+            <h1>My Furry Friends</h1>
+            <p>Meet the four-legged companions who bring joy and laughter to my life every day.</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="dog-section">
+            <div class="dog-profile">
+                <img src="images/Nana-profile.jpg" alt="Nana" class="dog-image">
+                <div class="dog-info">
+                    <h2>Nana</h2>
+                    <p>Meet Nana, my energetic and loving companion. She's a [breed] with a heart of gold and an endless enthusiasm for life. Whether we're hiking through trails or simply lounging at home, Nana brings joy to every moment.</p>
+                    <div class="dog-stats">
+                        <span class="stat">Age: 3 years</span>
+                        <span class="stat">Favorite Toy: Tennis Ball</span>
+                        <span class="stat">Best Trick: High Five</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add video section -->
+            <div class="video-section">
+                <h3 class="video-title">Nana's Adventures</h3>
+                <div class="video-container">
+                    <!-- Option 1: For YouTube videos -->
+                    <iframe 
+                        src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                        title="Nana's Adventures"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+
+                    <!-- Option 2: For locally hosted videos -->
+                    <!--
+                    <video controls>
+                        <source src="videos/nana-adventures.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    -->
+                </div>
+                <p class="video-description">Watch Nana enjoying her favorite activities and bringing smiles to everyone around her.</p>
+            </div>
+
+            <!-- Optional: Multiple Videos Section -->
+            <div class="video-section">
+                <h3 class="video-title">More Fun Moments</h3>
+                <div class="video-grid">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/ANOTHER_VIDEO_ID"
+                            title="Nana Playing"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/YET_ANOTHER_VIDEO_ID"
+                            title="Nana at the Park"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dog-images">
+                <img src="images/Nana-playing.jpg" alt="Nana playing" class="dog-image">
+                <img src="images/Nana-sleeping.jpg" alt="Nana sleeping" class="dog-image">
+                <img src="images/Nana-hiking.jpg" alt="Nana hiking" class="dog-image">
+            </div>
+        </section>
+
+        <section class="dog-section">
+            <div class="dog-profile">
+                <div class="dog-info">
+                    <h2>壞壞 (Huai Huai)</h2>
+                    <p>壞壞 is my friend's adorable companion who often joins us on our adventures. Despite the meaning of their name ("bad bad" in Chinese), they're actually the sweetest and most well-behaved friend anyone could ask for.</p>
+                    <div class="dog-stats">
+                        <span class="stat">Age: 2 years</span>
+                        <span class="stat">Favorite Activity: Cuddles</span>
+                        <span class="stat">Special Talent: Being Photogenic</span>
+                    </div>
+                </div>
+                <img src="images/HuaiHuai-profile.jpg" alt="壞壞" class="dog-image">
+            </div>
+            <div class="dog-images">
+                <img src="images/HuaiHuai-playing.jpg" alt="壞壞 playing" class="dog-image">
+                <img src="images/HuaiHuai-friends.jpg" alt="壞壞 with friends" class="dog-image">
+                <img src="images/HuaiHuai-sleeping.jpg" alt="壞壞 sleeping" class="dog-image">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Yun Chu. All rights reserved.</p>
+    </footer>
+</body>
+</html>

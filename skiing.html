@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skiing Adventures - Yun Chu</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        nav {
+            background: #333;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: #333;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.4rem;
+            top: 1rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #333;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            background: #007bff;
+            transform: scale(1.2);
+        }
+
+        .timeline-content {
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-preview {
+            padding: 0.75rem;
+            cursor: pointer;
+        }
+
+        .timeline-preview h3 {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .timeline-preview p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .timeline-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: white;
+        }
+
+        .timeline-content.expanded {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: scale(1.02);
+        }
+
+        .timeline-content.expanded .timeline-details {
+            max-height: 500px;
+            padding: 1rem;
+        }
+
+        .timeline-details img {
+            width: 100%;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-details p {
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #f5f5f5;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Skiing & Grass Skiing</h1>
+        <p>My Journey in the Snow World</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="interests.html">Interests</a></li>
+            <li><a href="travel.html">Travel</a></li>
+            <li><a href="index.html">Blog</a></li>
+            <li><a href="index.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="timeline-section">
+            <h2>My Skiing Adventures</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-preview">
+                            <h3>白樺湖</h3>
+                            <p>Jan 2005</p>
+                        </div>
+                        <div class="timeline-details">
+                            <img src="/api/placeholder/400/200" alt="Shirakabako">
+                            <h3>Shirakabako Royal Hill "白樺湖"</h3>
+                            <p>December 2023</p>
+                            <p>Experienced the snow world for the first time in Shirakabako Royal Hill! The pristine slopes and breathtaking views made for an unforgettable first skiing experience.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-preview">
+                            <h3>苗場</h3>
+                            <p>February 2015</p>
+                        </div>
+                        <div class="timeline-details">
+                            <img src="/api/placeholder/400/200" alt="Naeba">
+                            <h3>苗場</h3>
+                            <p>February 2015</p>
+                            <p>超讚的冰淇淋! The resort offered amazing amenities and the snow conditions were perfect.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-preview">
+                            <h3>藏王</h3>
+                            <p>February 2015</p>
+                        </div>
+                        <div class="timeline-details">
+                            <img src="/api/placeholder/400/200" alt="Naeba">
+                            <h3>藏王</h3>
+                            <p>February 2015</p>
+                            <p>樹冰</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-preview">
+                            <h3>韓國比賽</h3>
+                            <p>Jan 2005</p>
+                        </div>
+                        <div class="timeline-details">
+                            <img src="/api/placeholder/400/200" alt="Shirakabako">
+                            <h3>小六韓國比賽</h3>
+                            <p>December 2023</p>
+                            <p>與何秉瑞根翁鄭蓉一起去韓國比賽，莫名的尤加利葉樹笑話戲了很久。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-preview">
+                            <h3>平昌</h3>
+                            <p>February 2023</p>
+                        </div>
+                        <div class="timeline-details">
+                            <img src="/api/placeholder/400/200" alt="Appi Kogen">
+                            <h3>平昌</h3>
+                            <p>February 2023</p>
+                            <p>Conquered the legendary back bowls and enjoyed perfect snow conditions. The resort's extensive trail system provided challenges for every skill level.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-preview">
+                            <h3>安比高原</h3>
+                            <p>February 2023</p>
+                        </div>
+                        <div class="timeline-details">
+                            <img src="/api/placeholder/400/200" alt="Appi Kogen">
+                            <h3>安比高原</h3>
+                            <p>February 2023</p>
+                            <p>Conquered the legendary back bowls and enjoyed perfect snow conditions. The resort's extensive trail system provided challenges for every skill level.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-preview">
+                            <h3>志賀高原Shiga Kogen</h3>
+                            <p>February 2023</p>
+                        </div>
+                        <div class="timeline-details">
+                            <img src="/api/placeholder/400/200" alt="志賀高原Shiga Kogen">
+                            <h3>志賀高原Shiga Kogen</h3>
+                            <p>February 2023</p>
+                            <p>Amazing powder day with unforgettable views of the mountains. The fresh snow made for excellent skiing conditions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-preview">
+                            <h3>瑞士</h3>
+                            <p>February 2023</p>
+                        </div>
+                        <div class="timeline-details">
+                            <img src="/api/placeholder/400/200" alt="Switzerland">
+                            <h3>瑞士</h3>
+                            <p>February 2023</p>
+                            <p>Explored the majestic Swiss Alps and experienced world-class skiing. The combination of challenging terrain and incredible scenery made this trip truly special.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-preview">
+                            <h3>班尾高原</h3>
+                            <p>February 2023</p>
+                        </div>
+                        <div class="timeline-details">
+                            <img src="/api/placeholder/400/200" alt="Switzerland">
+                            <h3>班尾高原</h3>
+                            <p>February 2023</p>
+                            <p>Explored the majestic Swiss Alps and experienced world-class skiing. The combination of challenging terrain and incredible scenery made this trip truly special.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-preview">
+                            <h3>Remarlable</h3>
+                            <p>February 2023</p>
+                        </div>
+                        <div class="timeline-details">
+                            <img src="images/skiing/remarkable-mountain-top.jpg" alt="Remarkable">
+                            <h3>Remarlable</h3>
+                            <p>February 2023</p>
+                            <p>Explored the majestic Swiss Alps and experienced world-class skiing. The combination of challenging terrain and incredible scenery made this trip truly special.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-section">
+            <h3>Ski Photo Gallery</h3>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="images/skiing/NZSIA-leve1-02.jpg" alt="白樺湖">
+                    <div class="gallery-caption">First Black Diamond Run</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/skiing/NZSIA-level1.jpg" alt="志賀高原Shiga Kogen">
+                    <div class="gallery-caption">Powder Day at Whistler</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/skiing/remarkable-mountain-top.jpg" alt="Remarkable">
+                    <div class="gallery-caption">Mountain View</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/skiing/skiing.jpg" alt="合照">
+                    <div class="gallery-caption">合照!</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/skiing/NZSIA-level2.jpg" alt="合照">
+                    <div class="gallery-caption">合照!</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Yun Chu. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('click', (e) => {
+            // Close all expanded items if clicking outside any timeline item
+            if (!e.target.closest('.timeline-item')) {
+                document.querySelectorAll('.timeline-content').forEach(content => {
+                    content.classList.remove('expanded');
+                });
+                return;
+            }
+
+            // Handle timeline item clicks
+            const timelineItem = e.target.closest('.timeline-item');
+            if (timelineItem) {
+                const content = timelineItem.querySelector('.timeline-content');
+                
+                // Close other expanded items
+                document.querySelectorAll('.timeline-content').forEach(otherContent => {
+                    if (otherContent !== content) {
+                        otherContent.classList.remove('expanded');
+                    }
+                });
+
+                // Toggle clicked item
+                content.classList.toggle('expanded');
+            }
+        });
+    </script>
+</body>
+</html>

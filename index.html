@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yun Chu - Engineer | Skier | Tech Enthusiast</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ffffff;
+        }
+
+        .nav-wrapper {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        .intro-section {
+            margin-top: 60px;
+            padding: 4rem 0;
+            background: #faf6f1; /* Changed to a warm, soft off-white */
+        }
+
+        .intro-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .profile-img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            background: #f0f0f0;
+        }
+
+        .intro-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .roles {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .role-tag {
+            background: #e8f4fc;
+            color: #3498db;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: #3498db;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #3498db;
+        }
+
+        .section-preview {
+            margin: 2rem 0;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+            max-width: 1000px; /* Limit the width for better presentation */
+        }
+
+        .preview-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 400px; /* Fixed height for consistency */
+        }
+
+        .preview-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .preview-image-container {
+            width: 100%;
+            height: 200px; /* Fixed height for images */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .preview-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* This ensures the image covers the area without distortion */
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .preview-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .preview-content h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .preview-content p {
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .read-more:hover {
+            background: #2980b9;
+        }
+
+        .section-footer {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .view-all {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #f8f9fa;
+            color: #2c3e50;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-weight: 500;
+        }
+
+        .view-all:hover {
+            background: #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-wrapper">
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="#engineering">Engineering</a></li>
+                <li><a href="interests.html">Interests</a></li>
+                <li><a href="travel.html">Travel</a></li>
+                <li><a href="skiing.html">Skiing</a></li>
+                <li><a href="dogs.html">Dogs</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="life-notes.html">Life</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                
+            </ul>
+        </nav>
+    </div>
+
+    <section class="intro-section">
+        <div class="intro-content">
+            <img src="images/headshot.jpeg" alt="Yun Chu" class="profile-img">
+            <div class="intro-text">
+                <h1>Yun Chu</h1>
+                <div class="roles">
+                    <span class="role-tag">Embedded Systems Engineer</span>
+                    <span class="role-tag">Robotics Enthusiast</span>
+                    <span class="role-tag">Avid Skier</span>
+                    <span class="role-tag">Dog Lover</span>
+                </div>
+                <p>Building the future through robotics and embedded systems at Lenexa Medical, while pursuing adventures on snowy slopes and tinkering with tech projects.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/yunchu1999/"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section id="engineering" class="section-preview">
+            <h2 class="section-title">Engineering Journey</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">Embedded Systems</span>
+                <span class="tech-tag">Robotics</span>
+                <span class="tech-tag">C/C++</span>
+                <span class="tech-tag">Python</span>
+            </div>
+            <div class="preview-grid">
+                <div class="preview-card">
+                    <div class="preview-image-container">
+                        <img src="images/LenexaLogo.png" alt="Work" class="preview-image">
+                    </div>
+                    <div class="preview-content">
+                        <h3>Lenexa Medical</h3>
+                        <p>Working on cutting-edge medical devices as an Embedded Systems Engineer.</p>
+                        <a href="engineering/lenexa.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+                <div class="preview-card">
+                    <div class="preview-image-container">
+                        <img src="/api/placeholder/400/200" alt="Projects" class="preview-image">
+                    </div>
+                    <div class="preview-content">
+                        <h3>Personal Projects</h3>
+                        <p>Exploring robotics and automation through various side projects.</p>
+                        <a href="engineering/projects.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+                <a href="engineering.html" class="view-all">View All Engineering Projects →</a>
+            </div>
+        </section>
+
+        <section id="skiing" class="section-preview">
+            <h2 class="section-title">Skiing Adventures</h2>
+            <div class="preview-grid">
+                <div class="preview-card">
+                    <div class="preview-image-container">
+                        <img src="images/skiing/remarkable-mountain-top.jpg" alt="Skiing" class="preview-image">
+                    </div>
+                    <div class="preview-content">
+                        <h3>Favorite Slopes</h3>
+                        <p>Exploring the best ski resorts and sharing my experiences.</p>
+                        <a href="skiing/favorites.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+                <a href="skiing.html" class="view-all">View All Skiing Adventures →</a>
+            </div>
+        </section>
+
+        <section id="pets" class="section-preview">
+            <h2 class="section-title">Life with Dogs</h2>
+            <div class="preview-grid">
+                <div class="preview-card">
+                    <div class="preview-image-container">
+                        <img src="images/Nana and 壞壞.jpg" alt="Dogs" class="preview-image">
+                    </div>
+                    <div class="preview-content">
+                        <h3>Favorite Slopes</h3>
+                        <p>Exploring the best ski resorts and sharing my experiences.</p>
+                        <a href="dogs.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+                <a href="dogs.html" class="view-all">View All Skiing Adventures →</a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Get in Touch</h2>
+            <p>Feel free to reach out for collaborations or just to say hi!</p>
+            <p>Email: yun.chu.au@gmail.com</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Yun Chu. All rights reserved.</p>
+    </footer>
+</body>
+</html>
