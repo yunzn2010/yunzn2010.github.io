@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Days in Sydney</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <style>
+        /* Inherit base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header and Nav styles */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        nav {
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        /* Blog specific styles */
+        .blog-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .blog-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .blog-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-meta {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-tags {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .blog-content {
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .blog-section {
+            margin-bottom: 3rem;
+        }
+
+        .blog-section h2 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .blog-section p {
+            margin-bottom: 1rem;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.03);
+        }
+
+        .travel-tips {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .tip-item {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .tip-item::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #764ba2;
+        }
+
+        .map-container {
+            margin: 2rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        .map-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 3rem 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+
+        .author-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .share-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .share-button {
+            color: #666;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .share-button:hover {
+            color: #764ba2;
+        }
+
+        @media (max-width: 768px) {
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-title {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Travel Blog</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../education.html">Education</a></li>
+            <li><a href="../interests.html">Interests</a></li>
+            <li><a href="../skiing.html">Skiing</a></li>
+            <li><a href="../travel.html">Travel</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="blog-container">
+        <article>
+            <div class="blog-header">
+                <h1 class="blog-title">Two Days in Sydney</h1>
+                <div class="blog-meta">
+                    <span>August 1-6, 2024</span> • 
+                    <span>6 days</span> • 
+                    <span>WA, Australia</span>
+                </div>
+                <div class="blog-tags">
+                    <span class="tag">Opera House</span>
+                    <span class="tag">Blue Mountain</span>
+                    <span class="tag">6 Heads</span>
+                    <span class="tag">Sydney Fish Market</span>
+                </div>
+            </div>
+
+            <img src="../images/travel/opera_house.jpg " alt="Sydney Scenic View" class="featured-image">
+
+            <div class="blog-content">
+                <section class="blog-section">
+                    <h2>The Journey Begins</h2>
+                    <p>來到澳洲，沒去過雪梨似乎說不過去。短短兩日，拜訪了好朋友Jimmy，我們快速地拜訪了歌劇院以及藍山。</p>
+                </section>
+
+                <div class="photo-gallery">
+                    <img src="../images/travel/Willies-Creek.jpg" alt="Willies-Creek" class="gallery-image">
+                    <img src="../images/travel/quokka-2.jpg " alt="Willies-Creek" class="gallery-image">
+                </div>
+
+                <section class="blog-section">
+                    <h2>Highlights</h2>
+                    <p> Benny the seal沒有出現QQ</p>
+                </section>
+
+                <section class="blog-section">
+                    <h2>Where We Stayed</h2>
+                    <p> Little National Hotel Sydney，連結放上:  <a href="https://littlenationalhotel.com.au/sydney/">飯店連結</a> </p>
+                </section>
+                
+                <div class="photo-gallery">
+                    <img src="../images/travel/little-national-hotel-sydney.jpg" alt="little-national-hotel-sydney" class="gallery-image">
+                    <img src="../images/travel/little-national-hotel-sydney-rooftop.jpg" alt="little-national-hotel-sydney-rooftop" class="gallery-image">
+
+                </div>
+
+                <div class="travel-tips">
+                    <h2>Travel Tips</h2>
+                    <div class="tip-item">Best time to visit: 8月囉，天氣涼了，quokka們變得很有活力</div>
+                    <div class="tip-item">Must-bring items: 小零食，很多旅程都不太有地方買吃的</div>
+                    <div class="tip-item">Transportation: 租車</div>
+                    <div class="tip-item">Budget considerations: [Cost expectations and tips]</div>
+                </div>
+
+                <div class="map-container">
+                    <img src="../images/travel/Rottnest-Map.webp" alt="Trip Map" class="map-image">
+                </div>
+
+                <section class="blog-section">
+                    <h2>Final Thoughts</h2>
+                    <p>雪梨的繁華與澳洲其他城市形成一種隔閡的感覺，有種回到了亞洲的繁華感，少了點寧靜。歌劇院如同照片中的一般，雪梨的大橋卻是格外的震撼。兩天想要了解一個地方，實在太不夠了，不過未來有很多機會再來。</p>
+                </section>
+            </div>
+
+            <div class="author-section">
+                <img src="/api/placeholder/80/80" alt="Yun Chu" class="author-image">
+                <div class="author-info">
+                    <h3>Written by Yun Chu</h3>
+                    <p>Embedded Systems Engineer and adventure enthusiast. Always seeking new experiences and sharing stories along the way.</p>
+                </div>
+            </div>
+
+            <div class="share-section">
+                <h3>Share this adventure</h3>
+                <div class="share-buttons">
+                    <a href="#" class="share-button"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="share-button"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="share-button"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="share-button"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>© 2024 Yun Chu. All rights reserved.</p>
+    </footer>
+</body>
+</html>
