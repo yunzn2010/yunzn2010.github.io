@@ -15,12 +15,13 @@
 
         body {
             line-height: 1.6;
-            color: #333;
+            color: #2c3e50; /* Dark muted blue */
+            background-color: #ffffff; /* White background for a clean look */
         }
 
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: #faf6f1; /* Warm, soft off-white */
+            color: #2c3e50;
             padding: 2rem;
             text-align: center;
         }
@@ -29,6 +30,9 @@
             background: white;
             padding: 1rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav ul {
@@ -40,13 +44,13 @@
 
         nav a {
             text-decoration: none;
-            color: #333;
+            color: #2c3e50; /* Consistent with body text color */
             font-weight: 500;
             transition: color 0.3s;
         }
 
         nav a:hover {
-            color: #667eea;
+            color: #3498db; /* Bright blue for hover effect */
         }
 
         .about-container {
@@ -72,10 +76,11 @@
             width: 100%;
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: #f0f0f0; /* Light grey background to match profile images */
         }
 
         h1 {
-            color: #764ba2;
+            color: #2c3e50; /* Dark muted blue for consistency */
             margin-bottom: 1.5rem;
         }
 
@@ -84,12 +89,12 @@
         }
 
         .about-section h2 {
-            color: #667eea;
+            color: #3498db; /* Accent bright blue for section titles */
             margin-bottom: 1rem;
         }
 
         .highlight-box {
-            background: linear-gradient(135deg, rgba(102,126,234,0.1) 0%, rgba(118,75,162,0.1) 100%);
+            background: #e8f4fc; /* Light blue background */
             border-radius: 8px;
             padding: 1.5rem;
             margin: 1.5rem 0;

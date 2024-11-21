@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yun Chu - Education History</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    
     <style>
         * {
             margin: 0;
@@ -15,23 +16,32 @@
 
         body {
             background: #f5f5f5;
-            line-height: 1.6;
+            line-height: 2;
             color: #333;
         }
 
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #faf6f1;
+            color: #2c3e50;
+            padding: 2rem; /* Reduce padding to make the header smaller */
             text-align: center;
+            z-index: 1000;
         }
 
         nav {
+            position: fixed;
+            top: 10rem; /* Adjust this value based on the actual height of the header */
+            left: 0;
+            width: 100%;
             background: white;
             padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+            z-index: 1500;
         }
-
         nav ul {
             list-style: none;
             display: flex;
@@ -49,28 +59,42 @@
         nav a:hover {
             color: #667eea;
         }
-
-        .container {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            max-width: 1400px;
-            margin: 2rem auto;
-            gap: 2rem;
-            min-height: 100vh;
-            padding: 0 1rem;
+ 
+        /* Fixed Timeline Section */
+        .timeline-section {
+            position: fixed;
+            top: 20rem; /* Adjust based on header and nav height */
+            left: 5rem;              /* Adjust as needed */
+            width: 300px;            /* Width of your timeline */
+            padding-right: 2rem;
+            padding-top: 1rem;
+            height: calc(100vh - 18rem); /* Ensure it fits within the viewport */
+            overflow-y: auto;        /* Allow scrolling within the timeline if needed */
         }
 
-        .timeline-section {
-            position: sticky;
-            top: 2rem;
-            height: fit-content;
-            padding-right: 1rem;
+        /* Adjust the .container or .text-section to account for the fixed timeline */
+        .container, .text-section {
+            margin-left: calc(200px + 3rem); /* Leave space for the fixed timeline */
+            
+        }
+
+        .text-section {
+            position: relative; /* Use relative positioning */
+            top: 0; /* Ensure no unintended offset from other fixed elements */
+        }
+
+        .container {
+            position: relative; /* Use relative positioning */
+            top: 0; /* Ensure no unintended offset from other fixed elements */
+            max-width: 1400px;
+            margin: 15rem auto; /* Adjust the margin-top as needed */
+    
         }
 
         .timeline {
             position: relative;
-            height: 600px;
-            margin-left: 2rem;
+            margin-left: 5rem;
+            z-index: 2000; /* Adjust as needed to bring content in front */
         }
 
         .timeline::before {
@@ -108,13 +132,14 @@
             position: absolute;
             left: 20px;
             background: white;
-            padding: 0.5rem;
+            padding: 1rem;
             border-radius: 4px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 2px rgba(0,0,0,0.1);
             font-size: 0.8rem;
-            width: 150px;
+            width: 200px;
             opacity: 0.7;
             transition: all 0.3s ease;
+            z-index: 2000; /* Adjust as needed to bring content in front */
         }
 
         .timeline-content.active {
@@ -124,6 +149,7 @@
 
         .timeline-content h3 {
             font-size: 0.9rem;
+            margin-top: 0.25rem;
             margin-bottom: 0.25rem;
         }
 
@@ -182,28 +208,24 @@
             margin-top: 3rem;
         }
 
+        /* Media Queries */
         @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-            
             .timeline-section {
-                position: static;
-                order: 2;
+                display: none; /* Hide the timeline on smaller screens */
             }
-
-            nav ul {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
+            .text-section {
+                margin-left: 1rem;
+                margin-right: 1rem;
             }
         }
     </style>
+
 </head>
 <body>
     <header>
         <h1>Education History</h1>
-        <p>My Academic Journey</p>
+        <h4>My Academic Journey - From Taipei to Melbourne</h4>
+        <!-- <p>My Academic Journey</p> -->
     </header>
 
     <nav>
@@ -218,15 +240,16 @@
         </ul>
     </nav>
 
-    <div class="container">
-        <div class="timeline-section">
-            <div class="timeline">
-                <!-- Timeline periods will be inserted here by JavaScript -->
-            </div>
-        </div>
 
+    <div class="timeline-section">
+        <div class="timeline">
+            <!-- Timeline periods will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <div class="container">
         <div class="text-section">
-            <div class="education-item" data-start="2022" data-end="2024">
+            <div class="education-item" data-start="2022-07" data-end="2024-07">
                 <img src="images/education/unimelb.jpg" alt="University Logo" class="school-logo">
                 <div class="education-content">
                     <h3>The University of Melbourne 墨爾本大學</h3>
@@ -237,7 +260,7 @@
                 </div>
             </div>
 
-            <div class="education-item" data-start="2017" data-end="2021">
+            <div class="education-item" data-start="2017-09" data-end="2021-01">
                 <img src="images/education/ntu_logo.png" alt="University Logo" class="school-logo">
                 <div class="education-content">
                     <h3>National Taiwan University 國立台灣大學</h3>
@@ -248,10 +271,11 @@
                 </div>
             </div>
 
-            <div class="education-item" data-start="2014" data-end="2017">
+            <div class="education-item" data-start="2014-09" data-end="2017-06">
                 <img src="images/education/ahsnccu.png" alt="High School Logo" class="school-logo">
                 <div class="education-content">
-                    <h3>AHSNCCU 政大附中高中部</h3>
+                    <h3>政大附中(高中部)</h3>
+                    <h4>High School: The Affiliated High School of National Chengchi University (AHSNCCU)</h4>
                     <div class="year">2014 - 2017</div>
                     <p>Science and Mathematics Focus</p>
                     <div class="event-item">導師: 曹靜茹 老師</div>
@@ -260,10 +284,11 @@
                 </div>
             </div>
 
-            <div class="education-item" data-start="2011" data-end="2014">
+            <div class="education-item" data-start="2011-09" data-end="2014-06">
                 <img src="images/education/ahsnccu.png" alt="Junior High Logo" class="school-logo">
                 <div class="education-content">
-                    <h3>AHSNCCU 政大附中國中部</h3>
+                    <h3>政大附中(國中部)</h3>
+                    <h4>Junior High School: The Affiliated High School of National Chengchi University (AHSNCCU)</h4>
                     <div class="year">2011 - 2014</div>
                     <p>General Education</p>
                     <div class="event-item">導師: 張彥勝 老師</div>
@@ -272,10 +297,10 @@
                 </div>
             </div>
 
-            <div class="education-item" data-start="2005" data-end="2011">
+            <div class="education-item" data-start="2005-08" data-end="2011-06">
                 <img src="images/education/znees.jpeg" alt="Elementary School Logo" class="school-logo">
                 <div class="education-content">
-                    <h3>Elementary School@指南國小</h3>
+                    <h3>Elementary School: Taipei Zhinan Experimental Elementary School 指南國小</h3>
                     <div class="year">2005 - 2011</div>
                     <p>Primary Education</p>
                     <div class="event-item">Spelling bee champion</div>
@@ -289,32 +314,60 @@
     </footer>
 
     <script>
-        // Calculate timeline positions
-        const startYear = 2005;
-        const endYear = 2024;
-        const timelineHeight = 600; // matches CSS height
-        const yearHeight = timelineHeight / (endYear - startYear);
+        // Timeline height and calculations
+        const timelineHeight = 800; // Adjust as per CSS height
+        const startYearOverall = 2005; // The earliest year for calculating the start
+        const endYearOverall = 2024; // The latest year for calculating the end
 
-        function calculatePosition(year) {
-            return (year - startYear) * yearHeight;
+        function calculatePosition(year, month) {
+            // Calculate the total number of months between startYearOverall and endYearOverall
+            const totalMonthsInTimeline = (endYearOverall - startYearOverall) * 12;
+
+            // Calculate the number of months from the start year to the given year and month
+            const totalMonthsSinceStart = (year - startYearOverall) * 12 + (month - 1);
+
+            // Reverse the position, so the newest entries are at the top
+            return timelineHeight - ((totalMonthsSinceStart / totalMonthsInTimeline) * timelineHeight);
         }
 
         // Create timeline periods
         const timeline = document.querySelector('.timeline');
-        document.querySelectorAll('.education-item').forEach(item => {
-            const startYear = parseInt(item.dataset.start);
-            const endYear = parseInt(item.dataset.end);
-            const start = calculatePosition(startYear);
-            const height = calculatePosition(endYear) - start;
 
+        // Sort the education items in reverse chronological order before rendering
+        const educationItems = Array.from(document.querySelectorAll('.education-item')).sort((a, b) => {
+            const [aStartYear, aStartMonth] = a.dataset.start.split('-').map(Number);
+            const [bStartYear, bStartMonth] = b.dataset.start.split('-').map(Number);
+            
+            // Compare years first, if equal, compare months
+            if (bStartYear !== aStartYear) {
+                return bStartYear - aStartYear;
+            } else {
+                return bStartMonth - aStartMonth;
+            }
+        });
+
+        // Append the sorted items to the container
+        educationItems.forEach(item => {
+            // Parse the start and end date
+            const [startYear, startMonth] = item.dataset.start.split('-').map(Number);
+            const [endYear, endMonth] = item.dataset.end.split('-').map(Number);
+
+            // Calculate start position and height
+            const start = calculatePosition(startYear, startMonth);
+            const end = calculatePosition(endYear, endMonth);
+            const height = start - end;  // Calculate height in reverse order
+
+            // Create timeline item
             const timelineItem = document.createElement('div');
             timelineItem.className = 'timeline-item';
-            timelineItem.style.top = `${start}px`;
-            
+            timelineItem.style.top = `${end}px`; // Position from the bottom upwards
+
+            // Create timeline period
             const period = document.createElement('div');
             period.className = 'timeline-period';
             period.style.height = `${height}px`;
 
+            // Create timeline content
             const content = document.createElement('div');
             content.className = 'timeline-content';
             content.innerHTML = `
@@ -322,35 +375,58 @@
                 <p>${item.querySelector('.year').textContent}</p>
             `;
 
+            // Append period and content to timeline item
             timelineItem.appendChild(period);
             timelineItem.appendChild(content);
             timeline.appendChild(timelineItem);
 
-            // Add click handler
+            // Add click handler to highlight selected education item
             timelineItem.addEventListener('click', () => {
-                item.click();
+                item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                selectEducationItem(item);
             });
         });
 
         // Click handlers for education items
         document.querySelectorAll('.education-item').forEach(item => {
             item.addEventListener('click', () => {
-                // Remove active class from all items
-                document.querySelectorAll('.education-item').forEach(i => i.classList.remove('active'));
-                document.querySelectorAll('.timeline-period').forEach(i => i.classList.remove('active'));
-                document.querySelectorAll('.timeline-content').forEach(i => i.classList.remove('active'));
-                
-                // Add active class to clicked item and corresponding timeline
-                item.classList.add('active');
-                const startYear = item.dataset.start;
-                const timelineItem = timeline.querySelector(`.timeline-item[style*="top: ${calculatePosition(parseInt(startYear))}px"]`);
-                timelineItem.querySelector('.timeline-period').classList.add('active');
-                timelineItem.querySelector('.timeline-content').classList.add('active');
-                
-                // Scroll timeline item into view
-                timelineItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Scroll the corresponding timeline item into view
+                const [startYear, startMonth] = item.dataset.start.split('-').map(Number);
+                const start = calculatePosition(startYear, startMonth);
+
+                const timelineItem = Array.from(timeline.querySelectorAll('.timeline-item'))
+                    .find(ti => ti.style.top === `${timelineHeight - start}px`);
+
+                if (timelineItem) {
+                    timelineItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+
+                // Select the education item and corresponding timeline entry
+                selectEducationItem(item);
             });
         });
+
+        // Function to select and highlight the corresponding education item and timeline entry
+        function selectEducationItem(item) {
+            // Remove active class from all items
+            document.querySelectorAll('.education-item').forEach(i => i.classList.remove('active'));
+            document.querySelectorAll('.timeline-period').forEach(i => i.classList.remove('active'));
+            document.querySelectorAll('.timeline-content').forEach(i => i.classList.remove('active'));
+
+            // Add active class to clicked item and corresponding timeline
+            item.classList.add('active');
+            const [startYear, startMonth] = item.dataset.start.split('-').map(Number);
+            const start = calculatePosition(startYear, startMonth);
+
+            const timelineItem = Array.from(timeline.querySelectorAll('.timeline-item'))
+                .find(ti => ti.style.top === `${timelineHeight - start}px`);
+
+            if (timelineItem) {
+                timelineItem.querySelector('.timeline-period').classList.add('active');
+                timelineItem.querySelector('.timeline-content').classList.add('active');
+            }
+        }
+
     </script>
 </body>
 </html>
