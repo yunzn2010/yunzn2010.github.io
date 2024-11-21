@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Great Ocean Road Adventure - Travel Blog</title>
+    <link rel="stylesheet" type="text/css" href="../nav-styles.css">
+    <title>Tasmania Trip</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <style>
         /* Inherit base styles */
@@ -19,36 +20,12 @@
             color: #333;
         }
 
-        /* Header and Nav styles */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            margin-top: 60px;
+            background: #faf6f1; /* Warm, soft off-white */
+            color: #2c3e50;
             padding: 2rem;
             text-align: center;
-        }
-
-        nav {
-            background: white;
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #667eea;
         }
 
         /* Blog specific styles */
@@ -232,30 +209,36 @@
     </style>
 </head>
 <body>
+    <div class="nav-wrapper">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="#engineering">Engineering</a></li>
+                <li><a href="interests.html">Interests</a></li>
+                <li><a href="travel.html">Travel</a></li>
+                <li><a href="skiing.html">Skiing</a></li>
+                <!-- <li><a href="dogs.html">Dogs</a></li> -->
+                <li><a href="life-notes.html">Life</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                
+            </ul>
+        </nav>
+    </div>
+
     <header>
         <h1>Travel Blog</h1>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../about.html">About</a></li>
-            <li><a href="../education.html">Education</a></li>
-            <li><a href="#interests">Interests</a></li>
-            <li><a href="../skiing.html">Skiing</a></li>
-            <li><a href="../travel.html">Travel</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
     <main class="blog-container">
         <article>
             <div class="blog-header">
-                <h1 class="blog-title">Trip to WA 西澳游!</h1>
+                <h1 class="blog-title">Trip to Tasmania</h1>
                 <div class="blog-meta">
                     <span>August 1-6, 2024</span> • 
-                    <span>6 days</span> • 
-                    <span>WA, Australia</span>
+                    <span>4 days</span> • 
+                    <span>TAS, Australia</span>
                 </div>
                 <div class="blog-tags">
                     <span class="tag">Road Trip</span>
@@ -272,31 +255,35 @@
             <div class="blog-content">
                 <section class="blog-section">
                     <h2>The Journey Begins</h2>
-                    <p>為了一睹短尾矮袋鼠，為期六天的西澳之旅啟程啦!經過了尖石鎮，倫敦街，以及親自體驗了一把淘珍珠的快樂，我們終於見到quokkas啦!</p>
+                    <p>是一場說走就走的旅行(甚至是暑期實習的時候在辦公室訂的機票)。塔斯馬尼亞，好似我們對紐西蘭皇后鎮的印象，是地球上最好的幾個秘境。而且這裡是超級可愛的Tasmania Devil的家園，甚至有地方可以摸!</p>
                 </section>
 
                 <div class="photo-gallery">
-                    <img src="../images/travel/Willies-Creek.jpg" alt="Willies-Creek" class="gallery-image">
-                    <img src="../images/travel/quokka-2.jpg " alt="Willies-Creek" class="gallery-image">
-                    <img src="../images/travel/Pinnacles.jpg" alt="Willies-Creek" class="gallery-image">
-                    <img src="../images/travel/Isola.jpg" alt="Willies-Creek" class="gallery-image">
-                    <img src="../images/travel/EDOSEI.jpg" alt="Willies-Creek" class="gallery-image">
-                    <img src="../images/travel/791E3160-3082-4F91-8A7B-928A98D5F41A.jpg" alt="Willies-Creek" class="gallery-image">
+                    <img src="../images/travel/tasmania/Tasmania-devil-sign.jpg" alt="devil sign" class="gallery-image">
                 </div>
 
                 <section class="blog-section">
                     <h2>Highlights</h2>
                     <p> Samphire真的是一間超讚的飯店。島上有其他選項，也有glamping的選項，不過我們相當喜歡Samphire的體驗，價格甚至不貴!第一天的中餐跟晚餐都在Isola吃的，非常厲害的餐廳，龍蝦油烤大蝦以及神奇的豬五花，大推!</p>
                 </section>
+                <div class="photo-gallery">
+                    <img src="../images/travel/tasmania/deviel-pouch.jpg" alt="Devil Pouch" class="gallery-image">
+                    <img src="../images/travel/tasmania/lease-65.jpg" alt="Lease 65" class="gallery-image">
+                    <img src="../images/travel/tasmania/wombat.jpg" alt="Wombat Encounter" class="gallery-image">
+                </div>
 
                 <section class="blog-section">
                     <h2>Where We Stayed</h2>
-                    <h3>Day 1 - Day 4: Quay Perth Hotel</h3>
-                    <p> 小型商旅，空間小，位置佳<a href="https://quayperth.com/en">飯店連結</a> </p>
+                    <h3>Day 1 - Day 2: Stanley Village Waterfront</h3>
+                    <img src="../images/travel/tasmania/stanley-hotel.jpg" alt="Stanley Hotel" class="featured-image">
+                    <h3>Day 2 - Day 3: Hotel Verge Launceston</h3>
+                    <p> Address: 50 Tamar Street, Launceston</p>
+
+                    <!-- <p> 小型商旅，空間小，位置佳<a href="https://quayperth.com/en">飯店連結</a> </p> -->
                     
-                    <h3>Day 4 - Day 5: Samphire Rottnest</h3>
-                    <p> 在Rottness Island上，我們住在Samphire。</p>
-                    <h3>Day 5 - Day 6: Hyatt Regency Hotel</h3>
+                    <h3>Day 3 - Day 4: Wingtons Glamping</h3>
+                    <p> 挑戰了一晚住帳棚，豪華glamping。</p>
+
                 </section>
 
                 <div class="travel-tips">
