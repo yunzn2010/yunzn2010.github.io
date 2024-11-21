@@ -63,18 +63,19 @@
         /* Fixed Timeline Section */
         .timeline-section {
             position: fixed;
-            top: 20rem; /* Adjust based on header and nav height */
-            left: 5rem;              /* Adjust as needed */
+            top: 15rem; /* Adjust based on header and nav height */
+            left: auto;
             width: 300px;            /* Width of your timeline */
-            padding-right: 2rem;
-            padding-top: 1rem;
-            height: calc(100vh - 18rem); /* Ensure it fits within the viewport */
+            padding-right: 1rem;
+            padding-top: 2rem;
+            height: calc(100vh);
             overflow-y: auto;        /* Allow scrolling within the timeline if needed */
+            z-index: 1600;
         }
 
         /* Adjust the .container or .text-section to account for the fixed timeline */
         .container, .text-section {
-            margin-left: calc(200px + 3rem); /* Leave space for the fixed timeline */
+            margin-left: calc(200px + 2rem); /* Leave space for the fixed timeline */
             
         }
 
@@ -86,14 +87,14 @@
         .container {
             position: relative; /* Use relative positioning */
             top: 0; /* Ensure no unintended offset from other fixed elements */
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 15rem auto; /* Adjust the margin-top as needed */
     
         }
 
         .timeline {
             position: relative;
-            margin-left: 5rem;
+            margin-left: 2rem;
             z-index: 2000; /* Adjust as needed to bring content in front */
         }
 
@@ -130,13 +131,13 @@
 
         .timeline-content {
             position: absolute;
-            left: 20px;
+            left: 10px;
             background: white;
-            padding: 1rem;
-            border-radius: 4px;
+            padding: 0.8rem;
+            border-radius: 3px;
             box-shadow: 0 3px 2px rgba(0,0,0,0.1);
             font-size: 0.8rem;
-            width: 200px;
+            width: 300px;
             opacity: 0.7;
             transition: all 0.3s ease;
             z-index: 2000; /* Adjust as needed to bring content in front */
@@ -148,26 +149,26 @@
         }
 
         .timeline-content h3 {
-            font-size: 0.9rem;
-            margin-top: 0.25rem;
-            margin-bottom: 0.25rem;
+            font-size: 1rem;
+            margin-top: 0.1rem;
+            margin-bottom: 0.1rem;
         }
 
         .timeline-content p {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: #666;
         }
 
         .education-item {
-            padding: 1.5rem;
+            padding: 1rem;
             margin-bottom: 1.5rem;
             background: white;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 4px rgba(0,0,0,0.1);
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .school-logo {
@@ -176,7 +177,7 @@
             object-fit: contain;
             border-radius: 8px;
             background: #f8f8f8;
-            padding: 0.5rem;
+            padding: 0rem;
         }
 
         .education-content {
@@ -209,7 +210,7 @@
         }
 
         /* Media Queries */
-        @media (max-width: 768px) {
+        @media (max-width: 1400px) {
             .timeline-section {
                 display: none; /* Hide the timeline on smaller screens */
             }
@@ -252,7 +253,8 @@
             <div class="education-item" data-start="2022-07" data-end="2024-07">
                 <img src="images/education/unimelb.jpg" alt="University Logo" class="school-logo">
                 <div class="education-content">
-                    <h3>The University of Melbourne 墨爾本大學</h3>
+                    <h3>The University of Melbourne</h3>
+                    <h3>墨爾本大學</h3>
                     <div class="year">2022 - 2024</div>
                     <p>Master of Mechatronics Engineering</p>
                     <div class="event-item">2023 Student Ambassador of the Faculty of Engineering and Information Technology</div>
@@ -263,7 +265,8 @@
             <div class="education-item" data-start="2017-09" data-end="2021-01">
                 <img src="images/education/ntu_logo.png" alt="University Logo" class="school-logo">
                 <div class="education-content">
-                    <h3>National Taiwan University 國立台灣大學</h3>
+                    <h3>國立台灣大學</h3>
+                    <h3>National Taiwan University</h3>
                     <div class="year">2017 - 2021</div>
                     <p>Bachelor of Science in Mechanical Engineering</p>
                     <div class="event-item">Sperical Robot Project in BioRola Lab</div>
@@ -300,7 +303,8 @@
             <div class="education-item" data-start="2005-08" data-end="2011-06">
                 <img src="images/education/znees.jpeg" alt="Elementary School Logo" class="school-logo">
                 <div class="education-content">
-                    <h3>Elementary School: Taipei Zhinan Experimental Elementary School 指南國小</h3>
+                    <h3>指南國小</h3>
+                    <h4>Elementary School: Taipei Zhinan Experimental Elementary School</h4>
                     <div class="year">2005 - 2011</div>
                     <p>Primary Education</p>
                     <div class="event-item">Spelling bee champion</div>
