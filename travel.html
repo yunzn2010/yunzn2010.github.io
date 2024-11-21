@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="nav-styles.css">
     <title>Travel Adventures - Yun Chu</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <!-- Add React and ReactDOM -->
@@ -24,44 +25,23 @@
             color: #333;
         }
 
-        /* Header and Nav styles from main page */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
+            margin-top: 60px;
+            background: #faf6f1; /* Warm, soft off-white */
+            color: #2c3e50;
             text-align: center;
+            padding: 1.5rem 0;
         }
 
-        nav {
-            background: white;
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #667eea;
-        }
-
-        /* New Travel-specific styles */
         .travel-container {
             max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            position: relative; /* Use relative positioning */
+            margin: 3rem auto; /* Adjust the margin-top as needed */
+            flex: 1; /* Take the remaining space */
+            padding: 2 rem;
         }
+
 
         .destination-category {
             margin-bottom: 4rem;
@@ -183,12 +163,8 @@
             margin-right: 2rem; /* Space between timeline and main content */
         }
 
-        .travel-container {
-            flex: 1; /* Take the remaining space */
-            padding: 2 rem;
-        }
-
-        @media (max-width: 768px) {
+        
+        @media (max-width: 1600px) {
             #timeline-root {
                 display: none;
             }
@@ -279,21 +255,30 @@
     });
 </script>
 <body>
+    <div class="nav-wrapper">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="#engineering">Engineering</a></li>
+                <li><a href="interests.html">Interests</a></li>
+                <!-- <li><a href="travel.html">Travel</a></li> -->
+                <li><a href="skiing.html">Skiing</a></li>
+                <!-- <li><a href="dogs.html">Dogs</a></li> -->
+                <li><a href="life-notes.html">Life</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                
+            </ul>
+        </nav>
+    </div>
+
     <header>
         <h1>Travel Adventures</h1>
-        <p>Documenting my journeys around the world</p>
+        <h4>Documenting my journeys around the world</h4>
+
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="interests.html">Interests</a></li>
-            <li><a href="skiing.html">Skiing</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
     <!-- Add this right after the <nav> section -->
     <div id="timeline-root"></div>
 
@@ -409,6 +394,59 @@
                 </article>
             </div>
         </div>
+
+        <div class="destination-category">
+            <div class="category-header">
+                <h2>New Zealand</h2>
+                <span class="location-count" id="australia-count">Loading...</span>
+            </div>
+            <div class="travel-grid">
+
+                <article class="travel-card">
+                    <img src="images/travel/Phillip island.webp" alt="Phillip Island" class="travel-image">
+                    <div class="travel-content">
+                        <div class="travel-date">October 10-14, 2023</div>
+                        <h3 class="travel-title">Little Penguin Parade at Phillip Island</h3>
+                        <p class="travel-excerpt">
+                            Sun, surf, and theme parks - experiencing the best of Queensland's famous Gold Coast.
+                        </p>
+                        <div class="travel-tags">
+                            <span class="tag">Cradle Mountain</span>
+                            <span class="tag">Tasmania Devil</span>
+                            <span class="tag">St Helen</span>
+                        </div>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <div class="destination-category">
+            <div class="category-header">
+                <h2>Taiwan</h2>
+                <span class="location-count" id="australia-count">Loading...</span>
+            </div>
+            <div class="travel-grid">
+
+                <article class="travel-card">
+                    <img src="images/travel/Phillip island.webp" alt="Phillip Island" class="travel-image">
+                    <div class="travel-content">
+                        <div class="travel-date">October 10-14, 2023</div>
+                        <h3 class="travel-title">Little Penguin Parade at Phillip Island</h3>
+                        <p class="travel-excerpt">
+                            Sun, surf, and theme parks - experiencing the best of Queensland's famous Gold Coast.
+                        </p>
+                        <div class="travel-tags">
+                            <span class="tag">Cradle Mountain</span>
+                            <span class="tag">Tasmania Devil</span>
+                            <span class="tag">St Helen</span>
+                        </div>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+
     </main>
 
     <footer>

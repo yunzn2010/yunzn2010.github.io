@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="nav-styles.css">
     <title>Skiing Adventures - Yun Chu</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     
@@ -19,51 +20,11 @@
         }
 
         header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1200/400');
-            background-size: cover;
-            background-position: center;
-            color: white;
+            margin-top: 60px;
+            background: #faf6f1; /* Warm, soft off-white */
+            color: #2c3e50;
+            padding: 2rem;
             text-align: center;
-            padding: 4rem 0;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        header p {
-            font-size: 1.2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        nav {
-            background: #333;
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-
-        nav a:hover {
-            background-color: rgba(255,255,255,0.1);
         }
 
         main {
@@ -219,19 +180,6 @@
                 grid-template-columns: 1fr;
             }
 
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            header h1 {
-                font-size: 2rem;
-            }
-
-            header p {
-                font-size: 1rem;
-            }
-
             .gallery {
                 grid-template-columns: 1fr;
             }
@@ -239,22 +187,28 @@
     </style>
 </head>
 <body>
+    <div class="nav-wrapper">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="#engineering">Engineering</a></li>
+                <li><a href="interests.html">Interests</a></li>
+                <li><a href="travel.html">Travel</a></li>
+                <!-- <li><a href="skiing.html">Skiing</a></li> -->
+                <!-- <li><a href="dogs.html">Dogs</a></li> -->
+                <li><a href="life-notes.html">Life</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                
+            </ul>
+        </nav>
+    </div>
+
     <header>
         <h1>Skiing & Grass Skiing</h1>
-        <p>My Journey in the Snow World</p>
+        <h4>My Journey in the Snow World</h4>
     </header>
-
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="interests.html">Interests</a></li>
-            <li><a href="travel.html">Travel</a></li>
-            <li><a href="index.html">Blog</a></li>
-            <li><a href="index.html">Contact</a></li>
-        </ul>
-    </nav>
 
     <main>
         <div class="timeline-section">

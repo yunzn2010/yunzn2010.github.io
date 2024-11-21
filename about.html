@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="nav-styles.css">
     <title>About Me - Yun Chu</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <style>
@@ -20,37 +21,11 @@
         }
 
         header {
+            margin-top: 60px;
             background: #faf6f1; /* Warm, soft off-white */
             color: #2c3e50;
-            padding: 2rem;
             text-align: center;
-        }
-
-        nav {
-            background: white;
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #2c3e50; /* Consistent with body text color */
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #3498db; /* Bright blue for hover effect */
+            padding: 1.5rem 0;
         }
 
         .about-container {
@@ -126,12 +101,29 @@
     </style>
 </head>
 <body>
+    <div class="nav-wrapper">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="#engineering">Engineering</a></li>
+                <li><a href="interests.html">Interests</a></li>
+                <li><a href="travel.html">Travel</a></li>
+                <li><a href="skiing.html">Skiing</a></li>
+                <!-- <li><a href="dogs.html">Dogs</a></li> -->
+                <li><a href="life-notes.html">Life</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                
+            </ul>
+        </nav>
+    </div>
+
     <header>
         <h1>About Me</h1>
-        <p>Get to know me better</p>
+        <h4>Get to know me better</h4>
     </header>
 
-    <nav>
+    <!-- <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="education.html">Education</a></li>
@@ -141,7 +133,7 @@
             <li><a href="#blog">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-    </nav>
+    </nav> -->
 
     <div class="about-container">
         <div class="about-text">
