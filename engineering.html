@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Engineering - Projects, Skills, and Achievements | Yun Chu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include the same styles as the original page -->
+    <link rel="stylesheet" type="text/css" href="nav-styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ffffff;
+        }
+
+        /* Header Section */
+        .header-section {
+            padding: 4rem 0;
+            background: #faf6f1;
+            text-align: center;
+        }
+
+        .header-section h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .header-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 4rem 2rem;
+            background: #ffffff;
+        }
+
+        .skills-section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .skills-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #3498db;
+        }
+
+        .skills-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .skill-card {
+            background: #faf6f1;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .skill-card p {
+            color: #555;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 4rem 2rem;
+            background: #faf6f1;
+        }
+
+        .projects-section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .projects-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #3498db;
+        }
+
+        .projects-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .project-content p {
+            margin-bottom: 1rem;
+            flex-grow: 1;
+            color: #555;
+        }
+
+        .project-tags {
+            margin-bottom: 1rem;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: #b88e72;
+            color: #ffffff;
+            padding: 0.3rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .project-content a:hover {
+            background: #2980b9;
+        }
+
+        /* Achievements Section */
+        .achievements-section {
+            padding: 4rem 2rem;
+            background: #ffffff;
+        }
+
+        .achievements-section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .achievements-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #3498db;
+        }
+
+        .achievements-list {
+            max-width: 800px;
+            margin: 0 auto;
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievement-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .achievement-item::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-size: 1.5rem;
+            top: 0;
+        }
+
+        .achievement-item h3 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-item p {
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: #faf6f1;
+            color: #555;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav-wrapper">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="engineering.html">Engineering</a></li>
+                <li><a href="interests.html">Interests</a></li>
+                <li><a href="travel.html">Travel</a></li>
+                <li><a href="skiing.html">Skiing</a></li>
+                <li><a href="life-notes.html">Life</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Header Section -->
+    <section class="header-section">
+        <h1>Engineering Journey</h1>
+        <p>Delve into my world of engineering where I turn ideas into reality. Here, you'll find the projects I've worked on, the skills I've honed, and the milestones I've achieved along the way.</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            
+            <div class="skill-card">
+                <h3>Programming Languages</h3>
+                <p>C/C++, Python, Java, and more.</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Hardware</h3>
+                <p>CAD, Mecahnical Design, and Prototyping.</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Software</h3>
+                <p>Machine Learning, Computer Vision, and Software Optimisation. </p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Embedded Systems</h3>
+                <p> Microcontroller, Raspberry Pi, Jetson Nano, and sensor integration.</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Robotics</h3>
+                <p>Experience with robotic systems, automation, and control algorithms.</p>
+            </div>
+            
+            <div class="skill-card">
+                <h3>Team Leadership and Project Management</h3>
+                <p>Leading teams to deliver complex engineering projects.</p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Presentaion </h3>
+                <p>Public Speaking and Result Delivering</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <!-- Project Card 1 -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="images/projects/lenexa_project.jpg" alt="Lenexa Medical Project" class="project-image">
+                </div>
+                <div class="project-content">
+                    <h3>Lenexa Medical Device Development</h3>
+                    <div class="project-tags">
+                        <span class="project-tag">Embedded Systems</span>
+                        <span class="project-tag">Healthcare</span>
+                        <span class="project-tag">C/C++</span>
+                    </div>
+                    <p>As an Embedded Systems Engineer at Lenexa Medical, I worked on developing firmware for next-generation medical devices that improve patient care.</p>
+                    <a href="projects/lenexa_project.html">Read More</a>
+                </div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="images/projects/robot_arm.jpg" alt="Robotic Arm Project" class="project-image">
+                </div>
+                <div class="project-content">
+                    <h3>Automation</h3>
+                    <div class="project-tags">
+                        <span class="project-tag">Robotics</span>
+                        <span class="project-tag">Automation</span>
+                        <span class="project-tag">Python</span>
+                    </div>
+                    <p>Designed and programmed a robotic arm for industrial automation tasks, enhancing efficiency and precision in manufacturing processes.</p>
+                    <a href="projects/robotic_arm.html">Read More</a>
+                </div>
+            </div>
+
+            <!-- Project Card 3 -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="images/projects/home_automation.jpg" alt="Home Automation Project" class="project-image">
+                </div>
+                <div class="project-content">
+                    <h3>Smart Home Automation System</h3>
+                    <div class="project-tags">
+                        <span class="project-tag">IoT</span>
+                        <span class="project-tag">Embedded Systems</span>
+                        <span class="project-tag">C++</span>
+                    </div>
+                    <p>Developed an IoT-based home automation system, enabling remote control of appliances and energy efficiency improvements.</p>
+                    <a href="projects/home_automation.html">Read More</a>
+                </div>
+            </div>
+
+            <!-- Project Card 4 -->
+            <div class="project-card">
+                <div class="project-image-container">
+                    <img src="images/projects/drone_project.jpg" alt="Drone Project" class="project-image">
+                </div>
+                <div class="project-content">
+                    <h3>Autonomous Robot Navigation</h3>
+                    <div class="project-tags">
+                        <span class="project-tag">Drone</span>
+                        <span class="project-tag">AI</span>
+                        <span class="project-tag">Python</span>
+                    </div>
+                    <p>Implemented autonomous navigation algorithms for drones, focusing on obstacle avoidance and path planning.</p>
+                    <a href="projects/drone_navigation.html">Read More</a>
+                </div>
+            </div>
+
+            <!-- Add more project cards as needed -->
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements-section">
+        <h2>Achievements</h2>
+        <ul class="achievements-list">
+
+            <li class="achievement-item">
+                <h3>Team Lead for Robotics Competition</h3>
+                <p>Led a team to victory in the National Robotics Competition, showcasing advanced automation techniques.</p>
+            </li>
+
+            <!-- Add more achievements as needed -->
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Yun Chu. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
