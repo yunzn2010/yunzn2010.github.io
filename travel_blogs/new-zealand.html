@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../nav-styles.css">
+    <title>Tasmania Trip</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <style>
+        /* Inherit base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            margin-top: 60px;
+            background: #faf6f1; /* Warm, soft off-white */
+            color: #2c3e50;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Blog specific styles */
+        .blog-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .blog-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .blog-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-meta {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-tags {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .blog-content {
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .blog-section {
+            margin-bottom: 3rem;
+        }
+
+        .blog-section h2 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .blog-section p {
+            margin-bottom: 1rem;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.03);
+        }
+
+        .travel-tips {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .tip-item {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .tip-item::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #764ba2;
+        }
+
+        .map-container {
+            margin: 2rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        .map-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 3rem 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+
+        .author-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .share-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .share-button {
+            color: #666;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .share-button:hover {
+            color: #764ba2;
+        }
+
+        /* Travel Plan Styles */
+        .day-plan {
+            background-color: #f8f9fa; /* Light grey background */
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .day-plan h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-size: 1.5rem;
+            border-left: 5px solid #764ba2;
+            padding-left: 0.75rem;
+        }
+
+        .day-plan ol {
+            margin-left: 1rem;
+        }
+
+        .day-plan ol li i {
+            color: #764ba2;
+            margin-right: 0.5rem;
+        }
+
+        .day-plan ol li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .day-plan ol li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #764ba2;
+            font-size: 1.2rem;
+            line-height: 1;
+            top: 0.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-title {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            .day-plan {
+                padding: 1rem;
+            }
+
+            .day-plan h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-wrapper">
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../education.html">Education</a></li>
+                <li><a href="../engineering.html">Engineering</a></li>
+                <li><a href="../interests.html">Interests</a></li>
+                <li><a href="../travel.html">Travel</a></li>
+                <li><a href="skiing.html">Skiing</a></li>
+                <!-- <li><a href="dogs.html">Dogs</a></li> -->
+                <li><a href="../life-notes.html">Life</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+                
+            </ul>
+        </nav>
+    </div>
+
+    <header>
+        <h1>Travel Blog</h1>
+    </header>
+
+    <main class="blog-container">
+        <article>
+            <div class="blog-header">
+                <h1 class="blog-title">Trip to Tasmania</h1>
+                <div class="blog-meta">
+                    <span>August 1-6, 2024</span> • 
+                    <span>4 days</span> • 
+                    <span>TAS, Australia</span>
+                </div>
+                <div class="blog-tags">
+                    <span class="tag">Road Trip</span>
+                    <span class="tag">Coastal</span>
+                    <span class="tag">Nature</span>
+                    <span class="tag">Rottnes Island</span>
+                    <span class="tag">Quakka</span>
+                    <span class="tag">Photography</span>
+                </div>
+            </div>
+
+            <img src="../images/travel/tasmania/stanley-nut.jpg" alt="Stanley Nut" class="featured-image">
+
+            <div class="blog-content">
+                <section class="blog-section">
+                    <h2>The Journey Begins</h2>
+                    <p>是一場說走就走的旅行(甚至是暑期實習的時候在辦公室訂的機票)。塔斯馬尼亞，好似我們對紐西蘭皇后鎮的印象，是地球上最好的幾個秘境。而且這裡是超級可愛的Tasmania Devil的家園，甚至有地方可以摸!</p>
+                </section>
+
+                <div class="photo-gallery">
+                    <img src="../images/travel/tasmania/Tasmania-devil-sign.jpg" alt="devil sign" class="gallery-image">
+                </div>
+
+                <section class="blog-section">
+                    <h2>Travel Plan</h2>
+                
+                    <div class="day-plan">
+                        <h3>Day 1</h3>
+                        <ol>
+                            <li><i class="fas fa-plane-arrival"></i> 抵達Launceston機場(北邊的機場)</li>
+                            <li>取車Bargain，特別有趣的一點是這家的取車點在機場對面，但是必須搭接駁車過去，走路是走不到的。(至於為什麼是它家，因為便宜阿哈哈哈)</li>
+                            <li>前往41 South Tasmania and Georgie's Cafe。有一隻很友善的牧羊犬，以及有名的鮭魚養殖參觀行程。這裡沒有訊號，也是一個很好強迫你靜下來的地方。</li>
+                            <li>第一天的另一個重中之重，就是前往Trowunna看Tasmania Devil以及Wombat。印象中，接線阿姨不太友善(應該就是門口那個)，但是解說員超級讚。我們也是在這裡才發現澳洲的Quoll(東袋鼬)超級可愛!</li>
+                            <li>入住Stanley Village Waterfront (因為聽說這裡可以看到野生小企鵝走在街上)。實際上呢，我們只看到兩隻小企鵝很艱難的從岸邊石頭堆慢慢往上移動。</li>
+                            <li>晚餐吃Stanley Hotel Bistro</li>
+                        </ol>
+                    </div>
+                
+                    <div class="day-plan">
+                        <h3>Day 2</h3>
+                        <ol>
+                            <li>前往旁邊的海中巨岩搭乘The Nut Chair Lift (return tickets: AUD19 pp)</li>
+                            <li>Jimmy Lane Memorial Lookout與大相框合照。</li>
+                            <li>前往搖籃山(Cradle Mountain)的Devils@Cradle，路程相對遙遠。許多人前往搖籃山的目的是步行登山，不過我們直衝向超可愛的devils。</li>
+                            <li>4-5pm是我們預約的Joey Encounter私人導覽，價錢非常合理，大推大推。</li>
+                            <li>摸完小動物們後，驅車回到Launceston市中心</li>
+                            <li>入住Hotel Verge Launceston</li>
+                        </ol>
+                    </div>
+
+                    <div class="day-plan">
+                        <h3>Day 3</h3>
+                        <ol>
+                            <li>Launceston市區閒逛</li>
+                            <li>前往Bridestowe Lavender Estate吃薰衣草冰淇凌，抵達這天薰衣草已經所剩無幾，不太推薦這時間來。</li>
+                            <li>前往購買晚上露營的食物</li>
+                            <li>入住Wingtons Glaming，一個坐落河邊的豪華帳棚營地。</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="day-plan">
+                        <h3>Day 4</h3>
+                        <ol>
+                            <li>回程開回Lauceston市中心，經過了酒類的觀光中心，稍微停留了一下就繼續前往市中心。</li>
+                            <li>搭飛機回Melbourne!</li>
+                        </ol>
+                    </div>
+                    
+                </section>
+
+                <section class="blog-section">
+                    <h2>Highlights</h2>
+                    <p> Samphire真的是一間超讚的飯店。島上有其他選項，也有glamping的選項，不過我們相當喜歡Samphire的體驗，價格甚至不貴!第一天的中餐跟晚餐都在Isola吃的，非常厲害的餐廳，龍蝦油烤大蝦以及神奇的豬五花，大推!</p>
+                </section>
+                <div class="photo-gallery">
+                    <img src="../images/travel/tasmania/deviel-pouch.jpg" alt="Devil Pouch" class="gallery-image">
+                    <img src="../images/travel/tasmania/lease-65.jpg" alt="Lease 65" class="gallery-image">
+                    <img src="../images/travel/tasmania/wombat.jpg" alt="Wombat Encounter" class="gallery-image">
+                </div>
+
+                <section class="blog-section">
+                    <h2>Where We Stayed</h2>
+                    <h3>Day 1 - Day 2: Stanley Village Waterfront</h3>
+                    <img src="../images/travel/tasmania/stanley-hotel.jpg" alt="Stanley Hotel" class="featured-image">
+                    <h3>Day 2 - Day 3: Hotel Verge Launceston</h3>
+                    <p> Address: 50 Tamar Street, Launceston</p>
+                    <img src="../images/travel/tasmania/hotel-verge-launceston.jpg" alt="Hotel Verge Launceston" class="featured-image">
+
+                    <!-- <p> 小型商旅，空間小，位置佳<a href="https://quayperth.com/en">飯店連結</a> </p> -->
+                    
+                    <h3>Day 3 - Day 4: Wingtons Glamping</h3>
+                    <p> 挑戰了一晚住帳棚，豪華glamping。</p>
+                    <div class="photo-gallery">
+                        <img src="../images/travel/tasmania/glamping.jpg" alt="glamping" class="gallery-image">
+                        <img src="../images/travel/tasmania/glamping-02.jpg" alt="glamping-02" class="gallery-image">
+                        <img src="../images/travel/tasmania/glamping-view.jpg" alt="glamping-view" class="gallery-image">
+                        <img src="../images/travel/tasmania/glamping-view-02.jpg" alt="glamping-view" class="gallery-image">
+                    </div>
+                </section>
+
+                <div class="travel-tips">
+                    <h2>Travel Tips</h2>
+                    <div class="tip-item">Devil的愛: 如果你身上有炸雞的味道，他們會很愛你。</div>
+                    <div class="tip-item">Glamping:食物藥包好，不然負鼠來了就不嘻嘻了。</div>
+                </div>
+
+                <section class="blog-section">
+                    <h2>Final Thoughts</h2>
+                    <p>這篇心得是我的個人網頁試營運階段寫的，希望能夠帶給讀者一點幫助，也是為自己紀錄美好的回憶。未來會逐步回來補上缺失的部分，還請讀者多多包容。</p>
+                </section>
+            </div>
+
+            <div class="author-section">
+                <img src="/api/placeholder/80/80" alt="Yun Chu" class="author-image">
+                <div class="author-info">
+                    <h3>Written by Yun Chu</h3>
+                    <p>Embedded Systems Engineer and adventure enthusiast. Always seeking new experiences and sharing stories along the way.</p>
+                </div>
+            </div>
+
+            <div class="share-section">
+                <h3>Share this adventure</h3>
+                <div class="share-buttons">
+                    <a href="#" class="share-button"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="share-button"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="share-button"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="share-button"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>© 2024 Yun Chu. All rights reserved.</p>
+    </footer>
+</body>
+</html>
