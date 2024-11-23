@@ -143,6 +143,7 @@
             transition: all 0.3s ease;
             display: flex;
             gap: 2rem;
+            scroll-margin-top: 200px
         }
 
         .school-logo {
@@ -183,6 +184,12 @@
             margin-top: 3rem;
         }
 
+        .expanded-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
         /* Media Queries */
         @media (max-width: 1400px) {
             .timeline-section {
@@ -209,7 +216,6 @@
                 <li><a href="interests.html">Interests</a></li>
                 <li><a href="travel.html">Travel</a></li>
                 <li><a href="skiing.html">Skiing</a></li>
-                <li><a href="life-notes.html">Life</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -236,10 +242,23 @@
                     <h3>The University of Melbourne</h3>
                     <h3>墨爾本大學</h3>
                     <div class="year">2022 - 2024</div>
-                    <p>Master of Mechatronics Engineering</p>
+                    <p>Master of Mechatronics Engineering (with Distinction)</p>
                     <div class="event-item">2023 Student Ambassador of the Faculty of Engineering and Information Technology</div>
                     <div class="event-item">Unitree Go1 robot project</div>
+                    <div class="expanded-content">
+                        <!-- Additional information to display when expanded -->
+                        <h4>Extra Information</h4>
+                        <p>Official Certificate Issued by The University of Melbourne: <a href="https://www.myequals.net/sharelink/ade6f0cc-9fb3-455e-b7f9-9f8b4f040b04/c55bbbeb-e26d-492e-a5b4-190ede3beba3">Testamur</a></p>
+
+                        <h4>Final Year Capstone</h4>
+                        <p>Supervisor: Dr Ye Wang; Co-supervisor: Prof Chris Manzie</p>
+                        <p>Topic: Quadrapped Robot Navigation and Control</p>
+
+                        <!-- You can include images, links, lists, etc. -->
+
+                    </div>
                 </div>
+
             </div>
 
             <div class="education-item" data-start="2017-09" data-end="2022-01">
@@ -251,6 +270,14 @@
                     <p>Bachelor of Science in Mechanical Engineering</p>
                     <div class="event-item">Sperical Robot Project in BioRola Lab</div>
                     <div class="event-item">I made a lot of great friends here!</div>
+                    <div class="expanded-content">
+                        <!-- Additional information to display when expanded -->
+                        <p>Here are more details about my time at The University of Melbourne...</p>
+                        <!-- You can include images, links, lists, etc. -->
+                        <p>This is the testamur for my degree: <a href="https://www.myequals.net/sharelink/ade6f0cc-9fb3-455e-b7f9-9f8b4f040b04/c55bbbeb-e26d-492e-a5b4-190ede3beba3">Testamur</a></p>
+                        <p>Here are more details about my time at The University of Melbourne...</p>
+                        <p>Here are more details about my time at The University of Melbourne...</p>
+                    </div>
                 </div>
             </div>
 
@@ -264,6 +291,14 @@
                     <div class="event-item">導師: 曹靜茹 老師</div>
                     <div class="event-item">Class: 106 - 126</div>
                     <div class="event-item">Physics Research Projects</div>
+                    <div class="expanded-content">
+                        <!-- Additional information to display when expanded -->
+                        <p>Here are more details about my time at The University of Melbourne...</p>
+                        <!-- You can include images, links, lists, etc. -->
+                        <p>This is the testamur for my degree: <a href="https://www.myequals.net/sharelink/ade6f0cc-9fb3-455e-b7f9-9f8b4f040b04/c55bbbeb-e26d-492e-a5b4-190ede3beba3">Testamur</a></p>
+                        <p>Here are more details about my time at The University of Melbourne...</p>
+                        <p>Here are more details about my time at The University of Melbourne...</p>
+                    </div>
                 </div>
             </div>
 
@@ -277,6 +312,14 @@
                     <div class="event-item">導師: 張彥勝 老師</div>
                     <div class="event-item">Class: 074 - 094</div>
                     <div class="event-item">Judo Team Vice Leader</div>
+                    <div class="expanded-content">
+                        <!-- Additional information to display when expanded -->
+                        <p>Here are more details about my time at The University of Melbourne...</p>
+                        <!-- You can include images, links, lists, etc. -->
+                        <p>This is the testamur for my degree: <a href="https://www.myequals.net/sharelink/ade6f0cc-9fb3-455e-b7f9-9f8b4f040b04/c55bbbeb-e26d-492e-a5b4-190ede3beba3">Testamur</a></p>
+                        <p>Here are more details about my time at The University of Melbourne...</p>
+                        <p>Here are more details about my time at The University of Melbourne...</p>
+                    </div>
                 </div>
             </div>
 
@@ -288,6 +331,14 @@
                     <div class="year">2005 - 2011</div>
                     <p>Primary Education</p>
                     <div class="event-item">Spelling bee champion</div>
+                    <div class="expanded-content">
+                        <!-- Additional information to display when expanded -->
+                        <p>Here are more details about my time at The University of Melbourne...</p>
+                        <!-- You can include images, links, lists, etc. -->
+                        <p>This is the testamur for my degree: <a href="https://www.myequals.net/sharelink/ade6f0cc-9fb3-455e-b7f9-9f8b4f040b04/c55bbbeb-e26d-492e-a5b4-190ede3beba3">Testamur</a></p>
+                        <p>Here are more details about my time at The University of Melbourne...</p>
+                        <p>Here are more details about my time at The University of Melbourne...</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -410,6 +461,72 @@
                 timelineItem.querySelector('.timeline-content').classList.add('active');
             }
         }
+        // Combine click event listeners
+        document.querySelectorAll('.education-item').forEach(item => {
+            item.addEventListener('click', function(event) {
+                // Prevent expansion when clicking on links
+                if (event.target.tagName.toLowerCase() === 'a') {
+                    return; // Allow the link to function normally
+                }
+
+                // Reference to the clicked item
+                const clickedItem = this;
+
+                // Close any other expanded items
+                const expandedItems = document.querySelectorAll('.education-item.expanded');
+                expandedItems.forEach(expandedItem => {
+                    if (expandedItem !== clickedItem) {
+                        expandedItem.classList.remove('expanded');
+                        const expandedContent = expandedItem.querySelector('.expanded-content');
+                        if (expandedContent) {
+                            // Set max-height to 0 to trigger the collapse animation
+                            expandedContent.style.maxHeight = '0';
+                            // Optionally, remove maxHeight after transition completes
+                            setTimeout(() => {
+                                expandedContent.style.maxHeight = null;
+                            }, 300); // Match the duration in your CSS transition
+                        }
+                    }
+                });
+
+                // Toggle the 'expanded' class on the clicked item
+                const wasExpanded = clickedItem.classList.contains('expanded');
+                clickedItem.classList.toggle('expanded');
+
+                // Dynamically set max-height for the clicked item
+                const expandedContent = clickedItem.querySelector('.expanded-content');
+                if (expandedContent) {
+                    if (clickedItem.classList.contains('expanded')) {
+                        expandedContent.style.maxHeight = expandedContent.scrollHeight + 'px';
+                    } else {
+                        expandedContent.style.maxHeight = null;
+                    }
+                }
+
+                // Delay the scroll to allow the collapse/expand animations to complete
+                setTimeout(() => {
+                    // Scroll the timeline item into view
+                    const [startYear, startMonth] = clickedItem.dataset.start.split('-').map(Number);
+                    const start = calculatePosition(startYear, startMonth);
+
+                    const timelineItem = Array.from(timeline.querySelectorAll('.timeline-item'))
+                        .find(ti => ti.style.top === `${timelineHeight - start}px`);
+
+                    if (timelineItem) {
+                        timelineItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+
+                    // Highlight the selected education item
+                    selectEducationItem(clickedItem);
+
+                    // Scroll the expanded item into view
+                    clickedItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100); // Delay matches the collapse animation duration
+            });
+        });
+
+
+
 
     </script>
 </body>
