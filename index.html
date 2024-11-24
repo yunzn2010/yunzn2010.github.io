@@ -557,14 +557,55 @@
                 padding-left: 1rem; /* Reduce indentation */
             }
         }
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            z-index: 10; /* Ensure it stays on top */
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block; /* Show hamburger icon on smaller screens */
+            }
+
+            nav ul {
+                display: none; /* Hide the menu by default on smaller screens */
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem;
+                background: #faf6f1;
+                position: absolute;
+                top: 60px; /* Adjust depending on the header height */
+                left: 0;
+                right: 0;
+                width: 100%;
+            }
+
+            nav ul.show {
+                display: flex; /* Show the menu when 'show' class is added */
+            }
+
+            nav ul li {
+                padding: 10px 0; /* Add spacing for better readability */
+            }
+
+            .nav-wrapper {
+                position: relative;
+            }
+        }
 
         
     </style>
 </head>
 <body>
     <div class="nav-wrapper">
+        <div class="hamburger" onclick="toggleMenu()">☰</div> <!-- Hamburger icon for mobile -->
         <nav>
-            <ul>
+            <ul id="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="education.html">Education</a></li>
@@ -784,6 +825,12 @@
 
     window.onload = function () {
         typeWriter();
+    }
+</script>
+<script>
+    function toggleMenu() {
+        const navLinks = document.getElementById('nav-links');
+        navLinks.classList.toggle('show');
     }
 </script>
 
