@@ -39,6 +39,7 @@
 
         .profile-img {
             width: 100%;
+            height: auto; /* Make sure images adjust to the container without distortion */
             max-width: 500px;
             border-radius: 12px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
@@ -218,233 +219,234 @@
             vertical-align: bottom;
         }
         .engineering-experience-cards {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-    }
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
 
-    .experience-card {
-        background: #faf6f1;
-        border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 2rem;
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
+        .experience-card {
+            background: #faf6f1;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
 
-    .experience-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-    }
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
 
-    /* Top Section for Images and Company Overview */
-    .experience-top {
-        display: grid;
-        grid-template-columns: 2fr 2fr; /* Image section on left, description on right */
-        gap: 1.5rem;
-        margin-bottom: 2rem;
-    }
+        /* Top Section for Images and Company Overview */
+        .experience-top {
+            display: grid;
+            grid-template-columns: 2fr 2fr; /* Image section on left, description on right */
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
 
-    .experience-image-container-vertical {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        max-width: 500px; /* Made images more prominent */
-    }
+        .experience-image-container-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 500px; /* Made images more prominent */
+        }
 
-    .experience-image {
-        width: 100%;
-        border-radius: 10px;
-        object-fit: cover; /* Keeps the aspect ratio of the image while covering */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+        .experience-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover; /* Keeps the aspect ratio of the image while covering */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-    .experience-company-description {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+        .experience-company-description {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-    .experience-header {
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 0.5rem;
-        margin-bottom: 1rem;
-    }
+        .experience-header {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
 
-    .experience-company-description h3 {
-        color: #2c3e50;
-        font-size: 1.6rem;
-        margin-bottom: 0.5rem;
-    }
+        .experience-company-description h3 {
+            color: #2c3e50;
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
 
-    .experience-duration {
-        font-size: 0.9rem;
-        color: #7f8c8d;
-        margin-bottom: 1rem;
-    }
+        .experience-duration {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
 
-    /* Bottom Section for My Journey and Responsibilities */
-    .experience-bottom {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Split into left and right */
-        gap: 1.5rem;
-        margin-bottom: 1.5rem;
-    }
+        /* Bottom Section for My Journey and Responsibilities */
+        .experience-bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Split into left and right */
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
 
-    .experience-my-journey {
-        display: flex;
-        flex-direction: column;
-    }
+        .experience-my-journey {
+            display: flex;
+            flex-direction: column;
+        }
 
-    .experience-responsibilities {
-        display: flex;
-        flex-direction: column;
-    }
+        .experience-responsibilities {
+            display: flex;
+            flex-direction: column;
+        }
 
-    .experience-details {
-        margin-top: 1rem;
-        padding-left: 1.5rem;
-    }
+        .experience-details {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+        }
 
-    .experience-details li {
-        margin-bottom: 0.5rem;
-        list-style-type: disc;
-    }
+        .experience-details li {
+            margin-bottom: 0.5rem;
+            list-style-type: disc;
+        }
 
-    /* Bottom Links Section: Read More and Key Skills */
-    .experience-bottom-links {
-        display: flex;
-        justify-content: space-between; /* Positions "Read More" on the left and skills on the right */
-        align-items: center;
-        margin-top: 2rem;
-    }
+        /* Bottom Links Section: Read More and Key Skills */
+        .experience-bottom-links {
+            display: flex;
+            justify-content: space-between; /* Positions "Read More" on the left and skills on the right */
+            align-items: center;
+            margin-top: 2rem;
+        }
 
-    /* Read More Link */
-    .read-more {
-        flex: 1; /* Takes up more space in the row */
-        padding: 0.5rem 1rem;
-        background: #3498db;
-        color: white;
-        text-decoration: none;
-        border-radius: 4px;
-        transition: background 0.3s;
-    }
+        /* Read More Link */
+        .read-more {
+            flex: 1; /* Takes up more space in the row */
+            padding: 0.5rem 1rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
 
-    .read-more:hover {
-        background: #2980b9;
-    }
+        .read-more:hover {
+            background: #2980b9;
+        }
 
-    /* Key Skills as Bubbles */
-    .key-skills-container {
-        flex: 2; /* Takes less space compared to "Read More" */
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-    }
+        /* Key Skills as Bubbles */
+        .key-skills-container {
+            flex: 2; /* Takes less space compared to "Read More" */
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
 
-    .skill-tag {
-        background: #b88e72;
-        color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-        /* Make the background of personal life section span the full width of the viewport */
-    .personal-life-section {
-        background: #faf6f1; /* Full-width background matching intro section */
-        width: 100%; /* Full width for the background */
-        padding: 4rem 0; /* Padding for spacing */
-    }
+        .skill-tag {
+            background: #b88e72;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+            /* Make the background of personal life section span the full width of the viewport */
+        .personal-life-section {
+            background: #faf6f1; /* Full-width background matching intro section */
+            width: 100%; /* Full width for the background */
+            padding: 4rem 0; /* Padding for spacing */
+        }
 
-    .full-width-bg {
-        max-width: 1200px; /* Keeps the content within a restricted width */
-        margin: 0 auto; /* Center the content horizontally */
-        padding: 0 2rem; /* Adds horizontal padding */
-    }
+        .full-width-bg {
+            max-width: 1200px; /* Keeps the content within a restricted width */
+            margin: 0 auto; /* Center the content horizontally */
+            padding: 0 2rem; /* Adds horizontal padding */
+        }
 
-    .personal-life-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Two equal columns for Skiing and Dogs */
-        gap: 2rem;
-        margin: 2rem 0;
-    }
+        .personal-life-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two equal columns for Skiing and Dogs */
+            gap: 2rem;
+            margin: 2rem 0;
+        }
 
-    .personal-life-card {
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s;
-        display: flex;
-        flex-direction: column;
-        padding: 1.5rem;
-    }
+        .personal-life-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+        }
 
-    .personal-life-card:hover {
-        transform: translateY(-5px);
-    }
+        .personal-life-card:hover {
+            transform: translateY(-5px);
+        }
 
-    .preview-image-container {
-        width: 100%;
-        height: 200px; /* Fixed height for images */
-        overflow: hidden;
-        position: relative;
-    }
+        .preview-image-container {
+            width: 100%;
+            height: 200px; /* Fixed height for images */
+            overflow: hidden;
+            position: relative;
+        }
 
-    .preview-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Ensures the image covers the area without distortion */
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
+        .preview-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
 
-    .preview-content h3 {
-        color: #2c3e50;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-    }
+        .preview-content h3 {
+            color: #2c3e50;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
 
-    .preview-content p {
-        margin-bottom: 1rem;
-    }
+        .preview-content p {
+            margin-bottom: 1rem;
+        }
 
-    .read-more {
-        display: inline-block;
-        padding: 0.5rem 1rem;
-        background: #3498db;
-        color: white;
-        text-decoration: none;
-        border-radius: 4px;
-        transition: background 0.3s;
-    }
+        .read-more {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
 
-    .read-more:hover {
-        background: #2980b9;
-    }
+        .read-more:hover {
+            background: #2980b9;
+        }
 
-    .section-title {
-        font-size: 2rem;
-        color: #2c3e50;
-        margin-bottom: 2rem;
-        position: relative;
-        padding-bottom: 0.5rem;
-        text-align: center;
-    }
+        .section-title {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            text-align: center;
+        }
 
-    .section-title::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 3px;
-        background: #3498db;
-    }
-    .contact-section {
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #3498db;
+        }
+        .contact-section {
             background-color: #ffffff;
             padding: 4rem 0;
         }
@@ -461,6 +463,99 @@
                 background-color: transparent;
             }
         }
+        @media (max-width: 768px) {
+            .intro-content {
+                grid-template-columns: 1fr; /* Stack profile image and text vertically */
+                text-align: center;
+            }
+
+            .profile-img {
+                max-width: 80%; /* Reduce image size for smaller screens */
+                margin: 0 auto;
+            }
+
+            .roles {
+                justify-content: center; /* Center role tags */
+            }
+
+            nav ul {
+                display: flex;
+                flex-direction: column; /* Make navigation menu vertical */
+                align-items: center;
+            }
+
+            .preview-grid, .engineering-experience-cards, .personal-life-grid {
+                grid-template-columns: 1fr; /* Single column for cards for better readability */
+            }
+
+            .experience-top, .experience-bottom {
+                grid-template-columns: 1fr; /* Stack sections vertically to avoid squeezing content */
+            }
+
+            .social-links {
+                justify-content: center; /* Center social icons */
+            }
+
+            .intro-section, main, .personal-life-section, .contact-section {
+                padding: 2rem 1rem; /* Reduce padding for better spacing on smaller screens */
+            }
+
+            .experience-card {
+                height: auto; /* Let the cards adjust height dynamically */
+            }
+
+            .experience-bottom-links {
+                flex-direction: column; /* Stack "Read More" link and key skills */
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .read-more {
+                width: 100%;
+                text-align: center;
+            }
+
+            .key-skills-container {
+                justify-content: center; /* Center skills tags for better readability */
+            }
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem;
+                background: #faf6f1; /* Makes the menu more visually distinct on mobile */
+                position: absolute; /* Positioning to make it work as a mobile dropdown */
+                top: 60px; /* Adjust depending on header height */
+                left: 0;
+                right: 0;
+                display: none; /* Hide by default */
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .nav-wrapper {
+                position: relative;
+            }
+
+            .hamburger {
+                display: block;
+                font-size: 2rem;
+                cursor: pointer;
+            }
+        }
+        @media (max-width: 768px) {
+            .intro-section, .section-preview, .contact-section {
+                padding: 2rem 1rem;
+            }
+
+            .experience-details {
+                padding-left: 1rem; /* Reduce indentation */
+            }
+        }
+
         
     </style>
 </head>
@@ -638,7 +733,11 @@
         <p>© 2024 Yun Chu. All rights reserved.</p>
         
     </footer>
-    <style>
+    
+
+</body>
+
+<style>
     #typewriter {
         font-family: monospace; /* Gives a typing-like feel */
         white-space: pre-wrap;  /* Preserves line breaks */
@@ -684,7 +783,6 @@
         typeWriter();
     }
 </script>
-</body>
 
 
 </html>
