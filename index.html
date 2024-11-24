@@ -201,6 +201,28 @@
         .view-all:hover {
             background: #e9ecef;
         }
+
+        /* Typewriter Effect */
+        #typewriter {
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            background-color: #3498db;
+            animation: blink 0.7s step-end infinite;
+            vertical-align: bottom;
+        }
+
+        @keyframes blink {
+            50% {
+                background-color: transparent;
+            }
+        }
+        
     </style>
 </head>
 <body>
@@ -223,14 +245,11 @@
         <div class="intro-content">
             <img src="images/headshot.jpeg" alt="Yun Chu" class="profile-img">
             <div class="intro-text">
-                <h1>Yun Chu</h1>
-                <div class="roles">
-                    <span class="role-tag">Embedded Systems Engineer</span>
-                    <span class="role-tag">Mechatronics & Robotics Engineering</span>
-                    <span class="role-tag">Traveller & Skier</span>
-                    <span class="role-tag">Dog Lover</span>
-                </div>
-                <p>Embedded Systems Engineer at Lenexa Medical, bringing innovation to healthcare with smart tech. Passionate about robotics, automation, and transforming everyday life into something smarter and lazier—because let’s be honest, who doesn’t love a bit of convenience? Dive in to explore my journey in tech, automation dreams, and all things that make life run on autopilot!</p>
+                
+                <h1>Hello, I'm Yun Chu</h1>
+                <h2 id="typewriter"></h2><span class="cursor" id="cursor"></span>
+                <!-- <p>Come explore my projects, passions, and the adventures that shape my journey—from creating intelligent medical devices to hitting the slopes and spending time with my dogs. There's a lot to discover—dive in!</p> -->
+                
                 <div class="social-links">
                     <a href="#"><i class="fab fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/yunchu1999/"><i class="fab fa-linkedin"></i></a>
@@ -325,6 +344,55 @@
 
     <footer>
         <p>© 2024 Yun Chu. All rights reserved.</p>
+        
     </footer>
+    <style>
+    #typewriter {
+        font-family: monospace; /* Gives a typing-like feel */
+        white-space: pre-wrap;  /* Preserves line breaks */
+    }
+    .cursor {
+        display: inline-block;
+        width: 2px;
+        height: 1em;
+        background-color: black;
+        animation: blink 0.7s step-end infinite;
+    }
+    @keyframes blink {
+        50% {
+            background-color: transparent;
+        }
+    }
+</style>
+
+<script>
+    const txt = "I'm an Embedded Systems Engineer navigating the world of mechanics, sensors, and software, with a love for robotics.";
+    const words = txt.split(' ');
+    let i = 0;
+
+    function typeWriter() {
+        if (i < words.length) {
+            // Append the current word and add a space after it
+            document.getElementById("typewriter").innerHTML += words[i] + " ";
+
+            // Move the cursor to the new position
+            let typewriter = document.getElementById("typewriter");
+            let cursor = document.getElementById("cursor");
+            typewriter.appendChild(cursor);
+
+            i++;
+            setTimeout(typeWriter, 300); // Adjust speed to 300 ms per word
+        } else {
+            // Remove the cursor when typing is finished
+            document.getElementById("cursor").style.display = "none";
+        }
+    }
+
+    window.onload = function () {
+        typeWriter();
+    }
+</script>
 </body>
+
+
 </html>

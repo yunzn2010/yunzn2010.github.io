@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Existing head content -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Existing styles */
+        body {
+            font-family: 'Fira Code', monospace;
+            /* other styles */
+        }
+
+        /* Typewriter Effect */
+        #typewriter {
+            overflow: hidden;
+            border-right: .15em solid #3498db;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #3498db }
+        }
+
+        /* Scroll Down Indicator */
+        .scroll-down {
+            margin-top: 2rem;
+        }
+
+        .scroll-down span {
+            display: block;
+            width: 24px;
+            height: 24px;
+            border-bottom: 2px solid #3498db;
+            border-right: 2px solid #3498db;
+            transform: rotate(45deg);
+            margin: 0 auto;
+            animation: scrollDown 2s infinite;
+        }
+
+        @keyframes scrollDown {
+            0% { transform: rotate(45deg) translate(0, 0); opacity: 1; }
+            100% { transform: rotate(45deg) translate(0, 20px); opacity: 0; }
+        }
+
+        /* Engineering Content */
+        .engineering-content {
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+        /* Hover Effects */
+        .preview-card:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .read-more:hover {
+            background: #2980b9;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Background Image for Intro */
+        .intro-section {
+            background-image: url('images/code-background.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(250, 246, 241, 0.95);
+        }
+    </style>
+</head>
+<body>
+    <!-- Existing nav wrapper -->
+
+    <section class="intro-section">
+        <div class="intro-content">
+            <img src="images/headshot.jpeg" alt="Yun Chu" class="profile-img">
+            <div class="intro-text">
+                <h1 id="typewriter"></h1>
+                <h2>I'm an Embedded Systems Engineer navigating the world of mechanics, sensors, and software, with a love for robotics.</h2>
+                <p>Come explore my projects, passions, and the adventures that shape my journey—from creating intelligent medical devices to hitting the slopes and spending time with my dogs. There's a lot to discover—dive in!</p>
+                <!-- Scroll Down Indicator -->
+                <div class="scroll-down">
+                    <span></span>
+                </div>
+                <div class="social-links">
+                    <!-- Social links remain the same -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section id="engineering" class="section-preview">
+            <h2 class="section-title">Engineering Journey</h2>
+            <div class="engineering-content">
+                <p>I began my engineering journey at XYZ University, where I majored in Electrical Engineering with a focus on embedded systems. During my time there, I worked on various projects, including developing autonomous robots and IoT devices.</p>
+                <p>Currently, I'm working at Lenexa Medical, contributing to the development of cutting-edge medical devices that improve patient care.</p>
+            </div>
+            <!-- Rest of your existing content -->
+            <div class="section-footer">
+                <a href="#skiing" class="scroll-down">
+                    <span></span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Rest of your sections -->
+
+    </main>
+
+    <!-- Existing footer -->
+
+    <script>
+        const txt = "Hello, I'm Yun Chu";
+        let i = 0;
+
+        function typeWriter() {
+            if (i < txt.length) {
+                document.getElementById("typewriter").innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+
+        window.onload = typeWriter;
+    </script>
+</body>
+</html>
