@@ -7,6 +7,8 @@
     <!-- Include the same styles as the original page -->
     <link rel="stylesheet" type="text/css" href="nav-styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <script src="navigation.js"></script> 
+
     <style>
         /* Global Styles */
         * {
@@ -282,21 +284,9 @@
     </style>
 </head>
 <body>
+
     <!-- Navigation -->
-    <div class="nav-wrapper">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="education.html">Education</a></li>
-                <li><a href="engineering.html">Engineering</a></li>
-                <li><a href="interests.html">Interests</a></li>
-                <li><a href="travel.html">Travel</a></li>
-                <li><a href="skiing.html">Skiing</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
+    <div id="navigation-placeholder"></div>
 
     <!-- Header Section -->
     <section class="header-section">
@@ -428,6 +418,14 @@
     <footer>
         <p>© 2024 Yun Chu. All rights reserved.</p>
     </footer>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('navigation.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navigation-placeholder').innerHTML = data;
+                });
+        });
+    </script>
 </body>
 </html>
