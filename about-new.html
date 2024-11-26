@@ -1,24 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>About Me - Yun Chu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include your existing styles -->
     <link rel="stylesheet" type="text/css" href="nav-styles.css">
+    <!-- Font Awesome for icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <!-- Include Chart.js library for circular charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="navigation.js"></script>
     <style>
-        /* (Styles omitted for brevity, use the existing styles, adding more as necessary) */
-        
-        /* New Section Styles */
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ffffff;
+        }
+
+        /* Header Section */
+        header {
+            margin-top: 60px;
+            background: #faf6f1;
+            color: #2c3e50;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header h4 {
+            font-weight: 400;
+            color: #555;
+        }
+
+        /* About Container */
+        .about-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: #f0f0f0;
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+        }
+
+        .about-section {
+            margin-bottom: 2rem;
+        }
+
+        .about-section h2 {
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box {
+            background: #e8f4fc;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        /* Dashboard Section */
+        .dashboard {
+            margin-top: 2rem;
+        }
+
         .dashboard-item {
             background: #faf6f1;
             border-radius: 12px;
             padding: 1.5rem;
             text-align: center;
-            box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
+            box-shadow: 0 6px 6px rgba(0,0,0,0.1);
+            padding-bottom: 4rem;
+            
         }
 
         .dashboard-item h3 {
@@ -26,8 +113,7 @@
             color: #2c3e50;
         }
 
-        .hobby-charts,
-        .skills-charts {
+        .language-charts {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -35,14 +121,28 @@
             flex-wrap: wrap;
         }
 
-        .hobby-chart,
-        .skill-chart {
+        .language-chart {
             width: 5rem;
             height: 5rem;
             position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        .language-chart canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        .chart-percentage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.9rem;
+            color: #2c3e50;
+            text-align: center;
         }
 
         .chart-name {
@@ -52,104 +152,242 @@
             text-align: center;
         }
 
-        .timeline {
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: #f5f5f5;
+            margin-top: 3rem;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+            }
+
+            .about-image {
+                position: static;
+                margin-bottom: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
+
+        .interests-section {
+            text-align: center;
+            background-color: #faf6f1;  /* Matching the dashboard background */
+            padding: 1rem 0;
+            margin-top: 1rem;
+            border-radius: 1rem;
+            box-shadow: 0 6px 6px rgba(0,0,0,0.1);
+        }
+        .interests-section .section-title {
+            margin-bottom: 1rem; /* Increase the bottom margin */
+            /* or */
+            padding-bottom: 0rem; /* Add padding below the title */
+        }
+
+        .interests-container {
+            max-width: 1200px;
+
+            margin: 0 auto;  /* Centered container */
+            padding: 0 2rem;
+        }
+        .interests-container {
+            padding-bottom: 1rem; /* Add more padding at the bottom of the container */
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .interest-card {
+            width: 100%;
+            max-width: 200px;
+            background: white;
+            border-radius: 12px;
+            padding: 0.5rem;
+            box-shadow: 0 6px 6px rgba(0,0,0,0.1);
             display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            margin-top: 2rem;
+            align-items: center;
+            gap: 1rem;
+            transition: transform 0.3s ease;
+            margin: 0 auto;
+        }
+        .interest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.15);
         }
 
-        .timeline-event {
-            background: #e8f4fc;
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .interest-card .interest-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: #f0f4f8;
+            border-radius: 10%;
         }
 
-        .timeline-event h4 {
+        .interest-card .interest-icon i {
+            font-size: 1.5rem;
             color: #3498db;
-            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .interest-card .interest-content h5 {
+            color: #2c3e50;
+            font-size: 1rem;
+            margin: 0;
+            line-height: 1.2;
+        }
+        @media (max-width: 768px) {
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
-
 <body>
-    <!-- Navigation and Header (omitted for brevity) -->
+    <!-- Navigation -->
+    <div id="navigation-placeholder"></div>
+
+    <!-- Header -->
+    <header>
+        <h1>About Me</h1>
+        <h4>Get to know me better</h4>
+    </header>
 
     <!-- About Section -->
     <div class="about-container">
         <div class="about-text">
             <div class="about-section">
                 <h2>Who Am I?</h2>
-                <p>I'm Yun Chu, an Embedded Systems Engineer at Lenexa Medical with a passion for robotics, smart home technology, and microcontroller projects...</p>
+                <p>I'm Yun Chu, an Embedded Systems Engineer at Lenexa Medical with a passion for robotics, smart home technology, and microcontroller projects. My journey in engineering has been driven by a curiosity to understand how things work and a desire to create innovative solutions.</p>
             </div>
 
-            <div class="dashboard-item">
-                <h3>My Hobbies</h3>
-                <div class="hobby-charts">
-                    <!-- Skiing Chart -->
-                    <div class="hobby-chart">
-                        <canvas id="skiingChart"></canvas>
-                        <div class="chart-name">Skiing</div>
-                    </div>
-                    <!-- Travelling Chart -->
-                    <div class="hobby-chart">
-                        <canvas id="travelChart"></canvas>
-                        <div class="chart-name">Travelling</div>
-                    </div>
-                    <!-- Electronics Projects Chart -->
-                    <div class="hobby-chart">
-                        <canvas id="projectsChart"></canvas>
-                        <div class="chart-name">Electronics Projects</div>
+            <div class="about-section highlight-box">
+                <h2>What Drives Me</h2>
+                <p>I believe in the power of technology to improve lives. Whether it's developing embedded systems for medical devices or tinkering with robotics projects in my spare time, I'm constantly seeking ways to push the boundaries of what's possible.</p>
+            </div>
+
+
+
+            <div class="interests-section">
+                <div class="interests-container">
+                    <h3 class="section-title">Beyond Engineering</h3>
+                    <div class="interests-grid">
+                        <div class="interest-card">
+                            <div class="interest-icon">
+                                <i class="fas fa-dog"></i>
+                            </div>
+                            <div class="interest-content">
+                                <h5>Walk Dogs</h5>
+                            </div>
+                        </div>
+                        <div class="interest-card">
+                            <div class="interest-icon">
+                                <i class="fas fa-skiing"></i>
+                            </div>
+                            <div class="interest-content">
+                                <h5>Skiing</h5>
+                            </div>
+                        </div>
+                        <div class="interest-card">
+                            <div class="interest-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="interest-content">
+                                <h5>Reading</h5>
+                            </div>
+                        </div>
+                        <div class="interest-card">
+                            <div class="interest-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="interest-content">
+                                <h5>Technology</h5>
+                            </div>
+                        </div>
+                        <div class="interest-card">
+                            <div class="interest-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div class="interest-content">
+                                <h5>Cooking</h5>
+                            </div>
+                        </div>
+                        <div class="interest-card">
+                            <div class="interest-icon">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <div class="interest-content">
+                                <h5>Travelling</h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="dashboard-item">
-                <h3>My Journey</h3>
-                <div class="timeline">
-                    <div class="timeline-event">
-                        <h4>Feb 2020 - Dec 2021: University of Melbourne</h4>
-                        <p>Master's Degree in Mechatronics Engineering with a focus on embedded systems, robotics, and control systems.</p>
-                    </div>
-                    <div class="timeline-event">
-                        <h4>Nov 2023 - Present: Lenexa Medical</h4>
-                        <p>Joined as an Engineering Intern and progressed to Embedded Systems Engineer, managing firmware and software development.</p>
-                    </div>
-                </div>
-            </div>
+            
         </div>
 
         <div class="about-image">
             <img src="images/my_photo_capstone.jpg" alt="Yun Chu" />
-
-            <!-- Language Proficiency Dashboard -->
-            <div class="dashboard-item">
-                <h3>Language Proficiency</h3>
-                <div class="language-charts">
-                    <div class="language-chart">
-                        <canvas id="mandarinChart"></canvas>
-                        <div class="chart-name">Mandarin</div>
-                    </div>
-                    <div class="language-chart">
-                        <canvas id="englishChart"></canvas>
-                        <div class="chart-name">English</div>
-                    </div>
-                    <div class="language-chart">
-                        <canvas id="taiwaneseChart"></canvas>
-                        <div class="chart-name">Taiwanese</div>
+            <!-- Language Proficiency Charts -->
+            <div class="dashboard">
+                <div class="dashboard-item">
+                    <h3>Language Proficiency</h3>
+                    <div class="language-charts">
+                        <!-- Mandarin Chart -->
+                        <div class="language-chart">
+                            <canvas id="mandarinChart"></canvas>
+                            <div class="chart-percentage">95%</div>
+                            <div class="chart-name">Mandarin</div>
+                        </div>
+                        <!-- English Chart -->
+                        <div class="language-chart">
+                            <canvas id="englishChart"></canvas>
+                            <div class="chart-percentage">83%</div>
+                            <div class="chart-name">English</div>
+                        </div>
+                        <!-- Taiwanese Chart -->
+                        <div class="language-chart">
+                            <canvas id="taiwaneseChart"></canvas>
+                            <div class="chart-percentage">20%</div>
+                            <div class="chart-name">Taiwanese</div>
+                        </div>
                     </div>
                 </div>
+                <!-- You can add more dashboard items here -->
+            </div>
+            
+            
+                <!-- You can add more dashboard items here -->
             </div>
         </div>
     </div>
+    
 
-    <!-- Footer (omitted for brevity) -->
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Yun Chu. All rights reserved.</p>
+    </footer>
 
     <!-- Scripts -->
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Create a doughnut chart function for hobbies
-        function createHobbyChart(canvasId, percentage, color) {
+        // Function to create a doughnut chart
+        function createLanguageChart(canvasId, percentage, color) {
             const ctx = document.getElementById(canvasId).getContext('2d');
             new Chart(ctx, {
                 type: 'doughnut',
@@ -173,16 +411,19 @@
             });
         }
 
-        // Create charts for each hobby
-        createHobbyChart('skiingChart', 40, '#3498db');
-        createHobbyChart('travelChart', 30, '#b88e72');
-        createHobbyChart('projectsChart', 20, '#2c3e50');
-
         // Create charts for each language
-        createHobbyChart('mandarinChart', 95, '#b88e72');
-        createHobbyChart('englishChart', 83, '#3498db');
-        createHobbyChart('taiwaneseChart', 20, '#2c3e50');
+        createLanguageChart('mandarinChart', 95, '#b88e72');
+        createLanguageChart('englishChart', 83, '#3498db');
+        createLanguageChart('taiwaneseChart', 20, '#2c3e50');
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('navigation.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navigation-placeholder').innerHTML = data;
+                });
+        });
     </script>
 </body>
-
 </html>
