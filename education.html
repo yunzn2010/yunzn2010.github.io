@@ -147,13 +147,17 @@
             scroll-margin-top: 200px
         }
 
+        /* Adjusted school logo styles for responsiveness */
         .school-logo {
-            width: 140px;
-            height: 140px;
-            object-fit: contain;
+            width: 100%;            /* Set to 100% of its parent container */
+            max-width: 140px;       /* Max width to prevent overscaling */
+            height: auto;           /* Maintain aspect ratio */
+            max-height: 140px;      /* Limit the height */
+            object-fit: contain;    /* Keep aspect ratio and fit within the container */
             border-radius: 8px;
-            background: #f8f8f8;
-            padding: 0rem;
+            background-color: white; /* Ensures that the background is white */
+            padding: 1rem;           /* Adds space between the logo and its container */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: adds a light shadow */
         }
 
         .education-content {
@@ -230,22 +234,31 @@
                     <h3>The University of Melbourne</h3>
                     <h3>墨爾本大學</h3>
                     <div class="year">2022 - 2024</div>
-                    <p>Master of Mechatronics Engineering (with Distinction)</p>
-                    <div class="event-item">2023 Student Ambassador of the Faculty of Engineering and Information Technology</div>
+                    <h4>Master of Mechatronics Engineering (with Distinction)</h4>
+
+                    <div class="event-item">Click to see more below</div>
                     <div class="expanded-content">
-                        <!-- Additional information to display when expanded -->
-                        <h4>Official Information</h4>
-                        <p>Certificate Issued by The University of Melbourne: <a href="https://www.myequals.net/sharelink/ade6f0cc-9fb3-455e-b7f9-9f8b4f040b04/c55bbbeb-e26d-492e-a5b4-190ede3beba3">Testamur</a></p>
+                        <div class="event-item">
+                           
+                            <h4>Official Information</h4>
+                            <p>Certificate Issued by The University of Melbourne: click <a href="https://www.myequals.net/sharelink/ade6f0cc-9fb3-455e-b7f9-9f8b4f040b04/c55bbbeb-e26d-492e-a5b4-190ede3beba3">here</a> to open</p>
+                            
+                            <h4>Extracurricular</h4>
+                            <li>2023 Student Ambassador of the Faculty of Engineering and Information Technology</li>
+                            <li>FEIT Mentoring Program</li>
+                            <li>MUEEC Student Member</li>
 
-                        <h4>Final Year Capstone</h4>
-                        <p>Supervisor: Dr Ye Wang; Co-supervisor: Prof Chris Manzie</p>
-                        <p>Topic: Quadrapped Robot Navigation and Control</p>
 
-                        <h4>Achievements</h4>
-                        <li>2023 Ken Eltham Scholarship</li>
+                            <h4>Final Year Capstone</h4>
+                            <li>Supervisor: Dr Ye Wang</li>
+                            <li>Co-supervisor: Prof Chris Manzie</li>
+                            <li>Topic: Quadrapped Robot Navigation and Control</li>
 
-                        <!-- You can include images, links, lists, etc. -->
+                            <h4>Achievements</h4>
+                            <li>2023 Ken Eltham Scholarship</li>
 
+                            <!-- You can include images, links, lists, etc. -->
+                        </div>
                     </div>
                 </div>
 
@@ -257,13 +270,23 @@
                     <h3>國立台灣大學</h3>
                     <h3>National Taiwan University</h3>
                     <div class="year">2017 - 2022</div>
-                    <p>Bachelor of Science in Mechanical Engineering</p>
+                    <h4>Bachelor of Science (Mechanical Engineering)</h4>
                     <div class="event-item">I made a lot of great friends here!</div>
+                    <div class="event-item">Click to see more below</div>
+                    
                     <div class="expanded-content">
-                        <!-- You can include images, links, lists, etc. -->
-                        <h4>Research Project: Vertical Driven Model for Sperical Robot</h4>
-                        <h5>Supercised by Prof Pei Chun Lin in BioRola Lab </h5>
-                        <p>More details</p>
+                        <div class="event-item">
+                            <!-- You can include images, links, lists, etc. -->
+                            <h4>Official Information</h4>
+                            <li>Specialisation: System Control and Mechatronics</li>
+                            <h4>Research Project: Vertical Driven Model for Sperical Robot</h4>
+                            <li>Lab: NTU Bio-inspired Robotics Laboratory (BioRola)</li>
+                            <li>Supervisor: Prof Pei Chun Lin</li>
+                            <li>Teammates: 蕭尚亞, 王華豫, and 陳韜</li>
+                            <h4>Subjects</h4>
+                            <li>System Dynamics, Digital Control System, Machine Learning, etc</li>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -272,18 +295,17 @@
                 <img src="images/education/ahsnccu.png" alt="High School Logo" class="school-logo">
                 <div class="education-content">
                     <h3>政大附中(高中部)</h3>
-                    <h4>High School: The Affiliated High School of National Chengchi University (AHSNCCU)</h4>
+                    <h3>The Affiliated High School of National Chengchi University (AHSNCCU)</h3>
                     <div class="year">2014 - 2017</div>
-                    <p>Science and Mathematics Focus</p>
-                    <div class="event-item">導師: 曹靜茹 老師</div>
+                    <h4>High School: Science and Mathematics Focus (level 10-12)</h4>
                     <div class="event-item">Class: 106 - 126</div>
-                    <div class="event-item">Physics Research Projects</div>
                     <div class="expanded-content">
-                        <!-- Additional information to display when expanded -->
-                        <p>數理資優班</p>
-                        <p>物理專提研究(黃立雲老師指導)</p>
-                        <p>聞了很多鉛筆芯燃燒的味道</p>
-
+                        <div class="event-item">
+                            <li>導師: 曹靜茹 老師</li>
+                            <li>數理資優班 Gifted and Talented Program</li>
+                            <li>物理專提研究(黃立雲老師指導) Physics Research Projects</li>
+                            <li>聞了很多鉛筆芯燃燒的味道</li>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -292,9 +314,9 @@
                 <img src="images/education/ahsnccu.png" alt="Junior High Logo" class="school-logo">
                 <div class="education-content">
                     <h3>政大附中(國中部)</h3>
-                    <h4>Junior High School: The Affiliated High School of National Chengchi University (AHSNCCU)</h4>
+                    <h3>The Affiliated High School of National Chengchi University (AHSNCCU)</h3>
                     <div class="year">2011 - 2014</div>
-                    <p>General Education</p>
+                    <h4>Junior High School: General Education (level 7-9)</h4>
                     <div class="event-item">導師: 張彥勝 老師</div>
                     <div class="event-item">Class: 074 - 094</div>
                     <div class="expanded-content">
@@ -310,16 +332,17 @@
                 <img src="images/education/znees.jpeg" alt="Elementary School Logo" class="school-logo">
                 <div class="education-content">
                     <h3>指南國小</h3>
-                    <h4>Elementary School: Taipei Zhinan Experimental Elementary School</h4>
+                    <h3>Taipei Zhinan Experimental Elementary School</h3>
                     <div class="year">2005 - 2011</div>
-                    <p>Primary Education</p>
+                    <h4>Elementary School: Primary Education</h4>
                     <div class="event-item">指南山的放山雞</div>
                     <div class="expanded-content">
-                        <!-- Additional information to display when expanded -->
-                        <p>It's a tiny school full of fun and love.</p>
-                        <!-- You can include images, links, lists, etc. -->
-                        <p>水質檢測專題</p>
-                        
+                        <div class="event-item">
+                            <!-- Additional information to display when expanded -->
+                            <p>It's a tiny school full of fun and love.</p>
+                            <!-- You can include images, links, lists, etc. -->
+                            <p>水質檢測專題</p>
+                        </div>
                     </div>
                 </div>
             </div>
