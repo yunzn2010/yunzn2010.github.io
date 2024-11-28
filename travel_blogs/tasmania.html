@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../nav-styles.css">
-    <title>Tasmania Trip</title>
+    <title>塔斯馬尼亞自由行</title>
+    <meta descroption = "This web page is to show the journey to Perth and Rottnest Island, including the reccomendation and some experience."> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <script src="navigation.js"></script>
+
     <style>
         /* Inherit base styles */
         * {
@@ -93,6 +96,117 @@
 
         .blog-section p {
             margin-bottom: 1rem;
+        }
+
+        .image-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* Accommodation Section Styles */
+        .accommodation-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .accommodation-image {
+            width: 50%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .accommodation-details {
+            width: 50%;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .accommodation-title {
+            color: #764ba2;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .accommodation-info {
+            margin-bottom: 1rem;
+        }
+
+        .star-rating {
+            color: #ffc107;
+            margin-bottom: 1rem;
+        }
+
+        .star-rating i {
+            margin-right: 0.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .accommodation-container {
+                flex-direction: column;
+            }
+
+            .accommodation-image,
+            .accommodation-details {
+                width: 100%;
+            }
+
+            .accommodation-image {
+                height: 250px;
+            }
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            /* background-color: rgba(0, 0, 0, 0.7); */
+            color: black;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .photo-gallery .image-container {
+            width: 100%;
+            position: relative;
+        }
+
+        .photo-gallery .image-container img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .photo-gallery .image-container:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Featured image caption style */
+        .featured-image-container {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .featured-image-container img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .featured-image-container .image-caption {
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
         }
 
         .photo-gallery {
@@ -257,25 +371,12 @@
             }
         }
     </style>
+    
 </head>
 <body>
-    <div class="nav-wrapper">
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../about.html">About</a></li>
-                <li><a href="../education.html">Education</a></li>
-                <li><a href="../engineering.html">Engineering</a></li>
-                <li><a href="../interests.html">Interests</a></li>
-                <li><a href="../travel.html">Travel</a></li>
-                <li><a href="skiing.html">Skiing</a></li>
-                <!-- <li><a href="dogs.html">Dogs</a></li> -->
-                <li><a href="../life-notes.html">Life</a></li>
-                <li><a href="../contact.html">Contact</a></li>
-                
-            </ul>
-        </nav>
-    </div>
+
+    <!-- Navigation -->
+    <div id="navigation-placeholder"></div>
 
     <header>
         <h1>Travel Blog</h1>
@@ -284,9 +385,9 @@
     <main class="blog-container">
         <article>
             <div class="blog-header">
-                <h1 class="blog-title">Trip to Tasmania</h1>
+                <h1 class="blog-title">Tasmania自由行 - 曠野與寧靜</h1>
                 <div class="blog-meta">
-                    <span>August 1-6, 2024</span> • 
+                    <span>2024/01/27 - 2024/01/30</span> • 
                     <span>4 days</span> • 
                     <span>TAS, Australia</span>
                 </div>
@@ -300,7 +401,11 @@
                 </div>
             </div>
 
-            <img src="../images/travel/tasmania/stanley-nut.jpg" alt="Stanley Nut" class="featured-image">
+            <!-- Featured image with caption -->
+            <div class="featured-image-container">
+                <img src="../images/travel/tasmania/stanley-nut.jpg" alt="Stanley Nut" class="featured-image">
+                <div class="image-caption">The iconic Stanley Nut, a distinctive geological formation in Tasmania</div>
+            </div>
 
             <div class="blog-content">
                 <section class="blog-section">
@@ -313,7 +418,7 @@
                 </div>
 
                 <section class="blog-section">
-                    <h2>Travel Plan</h2>
+                    <h2>旅程規劃</h2>
                 
                     <div class="day-plan">
                         <h3>Day 1</h3>
@@ -372,15 +477,28 @@
                 <section class="blog-section">
                     <h2>Where We Stayed</h2>
                     <h3>Day 1 - Day 2: Stanley Village Waterfront</h3>
+                    <p>地址: 15 Wharf Rd, Stanley TAS 7331</p>
                     <img src="../images/travel/tasmania/stanley-hotel.jpg" alt="Stanley Hotel" class="featured-image">
+                    
+                    <!-- 第二個晚上住市區 -->
                     <h3>Day 2 - Day 3: Hotel Verge Launceston</h3>
                     <p> Address: 50 Tamar Street, Launceston</p>
-                    <img src="../images/travel/tasmania/hotel-verge-launceston.jpg" alt="Hotel Verge Launceston" class="featured-image">
+                    <p>Launceston市區並不繁華，我們挑了一個看起來嶄新的小飯店住了一晚。大廳與房間看起來嶄新且豪華，不過個人認為特點不多。還行。</p>
+                    <div class="photo-gallery">
+                        <img src="../images/travel/tasmania/hotel-verge-launceston.jpg" alt="Hotel Verge Launceston" class="featured-image">
+                        <img src="../images/travel/tasmania/hotel-verge-launceston-lobby.jpg" alt="Hotel Verge Launceston" class="featured-image">
+                    </div>
+                    
 
                     <!-- <p> 小型商旅，空間小，位置佳<a href="https://quayperth.com/en">飯店連結</a> </p> -->
                     
                     <h3>Day 3 - Day 4: Wingtons Glamping</h3>
-                    <p> 挑戰了一晚住帳棚，豪華glamping。</p>
+                    <p>挑戰了一晚住帳棚，豪華glamping。</p>
+                    <p>地址: 41 Sunset Blvd, Clarence Point TAS 7270</p>
+                    <p>這裡是一個與世隔絕的河岸。沒有餐廳，沒有車流，甚至沒有任何接待的人員。所謂的入住，其實就是扛著行李，沿著稍微規劃的小徑，走下山坡，走到抵達帳篷。
+                        豪華的帳篷帶給我們一種蒙古貴族住所的印象，主帳篷外設有一個小小的衛浴帳篷，算是一種原始與現代混和的體驗。</p>
+                    <p>晚餐是BBQ。我們烤著事先購買好的豬肋排與麵包，搭配著沙拉。徐徐微風，確實靜謐且舒適。隨著太陽降下，逐漸淡去的明亮與我們營火的火光似乎抹去了小動物們的膽怯，有一隻Wallaby悄悄的靠近我們的營地，注視著我們，再悄悄離去。而這一切都是如此的平靜、美好，卻也是下一個篇章的前奏：不依不撓的負鼠(Brushtail Possum)。
+                    </p>
                     <div class="photo-gallery">
                         <img src="../images/travel/tasmania/glamping.jpg" alt="glamping" class="gallery-image">
                         <img src="../images/travel/tasmania/glamping-02.jpg" alt="glamping-02" class="gallery-image">
@@ -424,5 +542,17 @@
     <footer>
         <p>© 2024 Yun Chu. All rights reserved.</p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('../navigation-lv2.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navigation-placeholder').innerHTML = data;
+                });
+        });
+    </script>
+    
 </body>
+
+
 </html>

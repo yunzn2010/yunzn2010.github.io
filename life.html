@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="nav-styles.css">
+    <title>Yun Chu - Life Journey</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <script src="navigation.js"></script> 
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            margin-top: 60px;
+            background: #faf6f1; /* Warm, soft off-white */
+            color: #2c3e50;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .life-section {
+            margin-bottom: 4rem;
+        }
+
+        .life-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .life-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .life-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .life-image {
+            width: 100%;
+            height: 200px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #764ba2;
+        }
+
+        .life-content {
+            padding: 1.5rem;
+        }
+
+        .life-content h3 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+        }
+
+        .quote-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 12px;
+            text-align: center;
+            font-style: italic;
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #f5f5f5;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div id="navigation-placeholder"></div>
+
+    <header>
+        <h1>My Life Journey</h1>
+        <p>Exploring Experiences, Connections, and Growth</p>
+    </header>
+
+    <main>
+        <!-- Interest Section -->
+        <section class="life-section">
+            <h2>Not Just About Engineering</h2>
+            <div class="life-grid">
+                <div class="life-card">
+                    <div class="life-image">
+                        <i class="fas fa-food"></i>
+                    </div>
+                    <div class="life-content">
+                        <h3>Cooking</h3>
+                        <p>Preparing a good meal is a big satisfaction for me, expecialy when poeple love what I make!</p>
+                    </div>
+                </div>
+
+                <div class="life-card">
+                    <div class="life-image">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="life-content">
+                        <h3>Reading</h3>
+                        <p>Scientific novel and martial arts novel, imagination and a word of fantasy</p>
+                    </div>
+                </div>
+
+                <div class="life-card">
+                    <div class="life-image">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="life-content">
+                        <h3>Violin</h3>
+                        <p>Both Max and Luna are rescue dogs, a choice that has profoundly impacted my life. Their resilience and capacity to love after challenging beginnings continue to inspire me daily.</p>
+                    </div>
+                </div>
+
+                <div class="life-card">
+                    <div class="life-image">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="life-content">
+                        <h3>Judo</h3>
+                        <p>Both Max and Luna are rescue dogs, a choice that has profoundly impacted my life. Their resilience and capacity to love after challenging beginnings continue to inspire me daily.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dogs Section -->
+        <!-- <section class="life-section">
+            <h2>Life with Furry Companions</h2>
+            <div class="life-grid">
+                <div class="life-card">
+                    <div class="life-image">
+                        <i class="fas fa-dog"></i>
+                    </div>
+                    <div class="life-content">
+                        <h3>Max and Luna</h3>
+                        <p>My two loyal companions who have been by my side through thick and thin. Max, a playful Golden Retriever, and Luna, a gentle Border Collie, bring endless joy and unconditional love to my life.</p>
+                    </div>
+                </div>
+
+                <div class="life-card">
+                    <div class="life-image">
+                        <i class="fas fa-walking"></i>
+                    </div>
+                    <div class="life-content">
+                        <h3>Adventures Together</h3>
+                        <p>From hiking trails to beach days, Max and Luna are my constant adventure buddies. They've taught me the importance of living in the moment and finding joy in simple experiences.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section> -->
+
+        <!-- Travel Section -->
+        <section class="life-section">
+            <h2>Exploring the World</h2>
+            <div class="life-grid">
+                <div class="life-card">
+                    <div class="life-image">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <div class="life-content">
+                        <h3>Cultural Immersion</h3>
+                        <p>Travel has been my greatest teacher. Each destination offers a unique perspective, challenging my assumptions and broadening my understanding of the world.</p>
+                    </div>
+                </div>
+
+                <div class="life-card">
+                    <div class="life-image">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="life-content">
+                        <h3>Photography Journeys</h3>
+                        <p>Capturing moments across different landscapes, from bustling city streets to serene mountain ranges. Photography allows me to preserve memories and share unique perspectives.</p>
+                    </div>
+                </div>
+
+                <div class="life-card">
+                    <div class="life-image">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="life-content">
+                        <h3>Global Connections</h3>
+                        <p>Beyond just visiting places, I strive to connect with local communities, understand their stories, and build meaningful cross-cultural relationships.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Section -->
+        <div class="quote-section">
+            <blockquote>
+                "Life is not about waiting for the storm to pass, it's about learning to dance in the rain."
+            </blockquote>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Yun Chu. All rights reserved.</p>
+    </footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('navigation.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navigation-placeholder').innerHTML = data;
+            });
+    });
+</script>
+</html>

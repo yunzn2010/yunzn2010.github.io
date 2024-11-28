@@ -11,6 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
     <!-- Add Babel for JSX support -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+    <script src="navigation.js"></script>
+
     <style>
         /* Your existing styles */
         * {
@@ -255,20 +257,9 @@
     });
 </script>
 <body>
-    <div class="nav-wrapper">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="education.html">Education</a></li>
-                <li><a href="engineering.html">Engineering</a></li>
-                <li><a href="interests.html">Interests</a></li>
-                <li><a href="travel.html">Travel</a></li>
-                <li><a href="skiing.html">Skiing</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
+
+    <!-- Navigation -->
+    <div id="navigation-placeholder"></div>
 
     <header>
         <h1>Travel Adventures</h1>
@@ -533,6 +524,15 @@
 
         // Render the Timeline component
         ReactDOM.render(<Timeline />, document.getElementById('timeline-root'));
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('navigation.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navigation-placeholder').innerHTML = data;
+                });
+        });
     </script>
 </body>
 </html>
