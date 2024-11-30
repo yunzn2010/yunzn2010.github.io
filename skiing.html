@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Include modular styles -->
+    <link rel="stylesheet" type="text/css" href="header-styles.css">
     <link rel="stylesheet" type="text/css" href="nav-styles.css">
+
     <title>Skiing Adventures - Yun Chu</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <script src="navigation.js"></script> 
@@ -19,14 +23,6 @@
         body {
 
             line-height: 1.6;
-        }
-
-        header {
-            margin-top: 60px;
-            background: #faf6f1; /* Warm, soft off-white */
-            color: #2c3e50;
-            padding: 2rem;
-            text-align: center;
         }
 
         main {
@@ -193,7 +189,8 @@
     <!-- Navigation -->
     <div id="navigation-placeholder"></div>
 
-    <header>
+    <!-- Header (now using modular class) -->
+    <header class="page-header">
         <h1>Skiing & Grass Skiing</h1>
         <h4>My Journey in the Snow World</h4>
     </header>

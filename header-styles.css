@@ -1,0 +1,41 @@
+/* Header Styles Module */
+
+/* Header Section Global Styles */
+.page-header {
+    margin-top: 50px;
+    background: #faf6f1;
+    color: #2c3e50;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.page-header h4 {
+    font-weight: 400;
+    color: #555;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .page-header h4 {
+        font-size: 0.9rem;
+    }
+}
+
+/* Optional: Add subtle animation for header */
+/* .page-header {
+    transition: background-color 0.3s ease;
+}
+
+.page-header:hover {
+    background-color: #f0f0f0;
+} */

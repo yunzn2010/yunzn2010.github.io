@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <title>Engineering - Projects, Skills, and Achievements | Yun Chu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Include the same styles as the original page -->
+
+    <!-- Include modular styles -->
+    <link rel="stylesheet" type="text/css" href="header-styles.css">
     <link rel="stylesheet" type="text/css" href="nav-styles.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <script src="navigation.js"></script> 
 
@@ -24,25 +27,6 @@
             background-color: #ffffff;
         }
 
-        /* Header Section */
-        .header-section {
-            padding: 4rem 0;
-            background: #faf6f1;
-            text-align: center;
-        }
-
-        .header-section h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-
-        .header-section p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            color: #555;
-        }
 
         /* Skills Section */
         .skills-section {
@@ -288,11 +272,11 @@
     <!-- Navigation -->
     <div id="navigation-placeholder"></div>
 
-    <!-- Header Section -->
-    <section class="header-section">
+    <!-- Header (now using modular class) -->
+    <header class="page-header">
         <h1>Engineering Journey</h1>
-        <p>Not everyone can be a Sheldon, but it takes a Howard to get things done!</p>
-    </section>
+        <h4>Not everyone can be a Sheldon, but it takes a Howard to get things done!</h4>
+    </header>
 
     <!-- Skills Section -->
     <section class="skills-section">

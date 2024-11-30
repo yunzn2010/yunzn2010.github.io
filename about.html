@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <title>About Me - Yun Chu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Include your existing styles -->
+
+    <!-- Include modular styles -->
+    <link rel="stylesheet" type="text/css" href="header-styles.css">
     <link rel="stylesheet" type="text/css" href="nav-styles.css">
+
     <!-- Font Awesome for icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <!-- Include Chart.js library for circular charts -->
@@ -24,25 +27,6 @@
             line-height: 1.6;
             color: #2c3e50;
             background-color: #ffffff;
-        }
-
-        /* Header Section */
-        header {
-            margin-top: 60px;
-            background: #faf6f1;
-            color: #2c3e50;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        header h4 {
-            font-weight: 400;
-            color: #555;
         }
 
         /* About Container */
@@ -210,8 +194,8 @@
     <!-- Navigation -->
     <div id="navigation-placeholder"></div>
 
-    <!-- Header -->
-    <header>
+    <!-- Header (now using modular class) -->
+    <header class="page-header">
         <h1>About Me</h1>
         <h4>Get to know me better</h4>
     </header>
@@ -251,13 +235,13 @@
                         <!-- English Chart -->
                         <div class="language-chart">
                             <canvas id="englishChart"></canvas>
-                            <div class="chart-percentage">83%</div>
+                            <div class="chart-percentage">88%</div>
                             <div class="chart-name">English</div>
                         </div>
                         <!-- Taiwanese Chart -->
                         <div class="language-chart">
                             <canvas id="taiwaneseChart"></canvas>
-                            <div class="chart-percentage">20%</div>
+                            <div class="chart-percentage">30%</div>
                             <div class="chart-name">Taiwanese</div>
                         </div>
                     </div>
@@ -304,8 +288,8 @@
 
         // Create charts for each language
         createLanguageChart('mandarinChart', 95, '#b88e72');
-        createLanguageChart('englishChart', 83, '#3498db');
-        createLanguageChart('taiwaneseChart', 20, '#2c3e50');
+        createLanguageChart('englishChart', 88, '#3498db');
+        createLanguageChart('taiwaneseChart', 30, '#2c3e50');
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {

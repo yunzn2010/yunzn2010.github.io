@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Include modular styles -->
+    <link rel="stylesheet" type="text/css" href="header-styles.css">
     <link rel="stylesheet" type="text/css" href="nav-styles.css">
+
     <title>Yun Chu - Life Journey</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <script src="navigation.js"></script> 
@@ -21,14 +25,6 @@
             color: #333;
         }
 
-        header {
-            margin-top: 60px;
-            background: #faf6f1; /* Warm, soft off-white */
-            color: #2c3e50;
-            padding: 2rem;
-            text-align: center;
-        }
-
         main {
             max-width: 1200px;
             margin: 2rem auto;
@@ -39,37 +35,62 @@
             margin-bottom: 4rem;
         }
 
+        /* Life Grid */
         .life-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
             margin-top: 2rem;
         }
 
+        @media (min-width: 768px) {
+            .life-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Life Card */
         .life-card {
+            display: flex;
             background: white;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: transform 0.3s;
+            min-height: 50px; /* Increased height */
         }
 
         .life-card:hover {
             transform: translateY(-5px);
         }
 
+        /* Life Image */
         .life-image {
-            width: 100%;
-            height: 200px;
+            flex: 0 0 250px; /* Increase width to give more space to the image */
+            height: auto;
+            max-height: 300px;
             background: #f0f0f0;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            overflow: hidden;
+        }
+
+        .life-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image fills the container without distortion */
+            border-radius: 12px 0 0 12px; /* Smooth corners to match the card */
+        }
+
+        .life-image i {
+            font-size: 4rem;
             color: #764ba2;
         }
 
+        /* Life Content */
         .life-content {
+            flex: 1;
             padding: 1.5rem;
         }
 
@@ -108,23 +129,25 @@
     <!-- Navigation -->
     <div id="navigation-placeholder"></div>
 
-    <header>
+    <!-- Header (now using modular class) -->
+    <header class="page-header">
         <h1>My Life Journey</h1>
-        <p>Exploring Experiences, Connections, and Growth</p>
+        <h4>Exploring Experiences, Connections, and Growth</h4>
     </header>
 
     <main>
+
         <!-- Interest Section -->
         <section class="life-section">
             <h2>Not Just About Engineering</h2>
             <div class="life-grid">
                 <div class="life-card">
                     <div class="life-image">
-                        <i class="fas fa-food"></i>
+                        <img src="images/life/cooking.jpg" alt="Yun Chu" />
                     </div>
                     <div class="life-content">
                         <h3>Cooking</h3>
-                        <p>Preparing a good meal is a big satisfaction for me, expecialy when poeple love what I make!</p>
+                        <p>Preparing a good meal is a big satisfaction for me, especially when people love what I make!</p>
                     </div>
                 </div>
 
@@ -134,31 +157,32 @@
                     </div>
                     <div class="life-content">
                         <h3>Reading</h3>
-                        <p>Scientific novel and martial arts novel, imagination and a word of fantasy</p>
+                        <p>For me, reading fuels my imagination like nothing else. It even makes travel more magical—when I’ve read about a culture, it feels like I’m meeting an old friend when I visit.</p>
                     </div>
                 </div>
 
                 <div class="life-card">
                     <div class="life-image">
-                        <i class="fas fa-heart"></i>
+                        <img src="images/life/violin.jpg" alt="Yun Chu" />
                     </div>
                     <div class="life-content">
                         <h3>Violin</h3>
-                        <p>Both Max and Luna are rescue dogs, a choice that has profoundly impacted my life. Their resilience and capacity to love after challenging beginnings continue to inspire me daily.</p>
+                        <p>Classical music has always been a significant part of my life. From the age of seven through university, I learned to overcome frustration and steady my mind through daily practice. It has given me a way to find peace and express my emotions.</p>
                     </div>
                 </div>
 
                 <div class="life-card">
                     <div class="life-image">
-                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-dumbbell"></i>
                     </div>
                     <div class="life-content">
                         <h3>Judo</h3>
-                        <p>Both Max and Luna are rescue dogs, a choice that has profoundly impacted my life. Their resilience and capacity to love after challenging beginnings continue to inspire me daily.</p>
+                        <p>Practicing Judo has taught me discipline and perseverance. It challenges me physically and mentally, helping me grow in many aspects of life.</p>
                     </div>
                 </div>
             </div>
         </section>
+
 
         <!-- Dogs Section -->
         <!-- <section class="life-section">
